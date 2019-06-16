@@ -1,0 +1,701 @@
+﻿#作者自用过滤器
+#=====================================
+#	 制作：绝版大叔、
+#	   QQ：250740270
+#最后更新：2017年10月29日
+#=====================================
+
+
+#
+
+
+#全局 暗金字暗金框
+Show
+    Rarity = Unique
+	SetBorderColor 169 98 22
+	SetTextColor 169 98 22
+    PlayAlertSound 5 300
+	SetFontSize 45
+	PlayEffect Brown
+	MinimapIcon 0 Brown Triangle
+
+
+
+#=============3.5.0背叛联盟===============
+
+
+
+Show
+	Prophecy "The Cursed Choir"
+	SetTextColor 0 0 0
+	SetBorderColor 0 0 0
+	SetBackgroundColor 255 91 209
+	SetFontSize 45
+	CustomAlertSound "mp3\ohyes.wav"
+	PlayEffect White Temp
+	MinimapIcon 0 White Circle
+
+#=============3.3.0入侵联盟===============
+#版本词缀
+Show
+	Class "Incursion Item"
+	SetFontSize 45
+
+
+
+#=============命运卡===============
+#值钱的
+#谦逊[寿衣](Humility)
+Show
+	Class "Divination Card"
+	BaseType "Humility" "帝运" "混沌之雨"  "制图师" "怨忿" "智慧" "启蒙" "宝箱" "鼠辈" "天堂执法官" "谦逊" "无迹之海" "收割者" "远征" "虚空" "大军阀" "疯医"
+	SetFontSize 45
+	SetTextColor 0 0 0
+	SetBorderColor 0 0 0
+	SetBackgroundColor 33 184 255
+	SetFontSize 45
+	CustomAlertSound "mp3\ohyes.wav"
+	PlayEffect Red
+	MinimapIcon 0 Red Circle
+
+
+#全局
+#命运卡
+Show
+	Class "Divination Card" 
+	SetTextColor 0 0 0
+	SetBorderColor 0 0 0
+	SetBackgroundColor 33 184 255
+	SetFontSize 45
+	PlayEffect Red
+	MinimapIcon 0 Red Circle
+	
+
+
+
+
+
+
+#显示 品质大于10的装备 宝石
+Show
+	Quality > 10
+	Class "Gem" 
+	PlayEffect Brown
+	MinimapIcon 0 Brown Square
+	SetTextColor 0 0 0
+	SetBorderColor 0 0 0
+	SetBackgroundColor 58 255 255
+
+#================宝石类================
+
+#显示 指定宝石
+Show
+	BaseType "传送门"
+
+
+#显示 等级大于10的宝石 并且 红色光柱
+Show
+	Class "Gem"
+	GemLevel >= 10
+	SetFontSize 45
+	PlayEffect Brown
+	MinimapIcon 0 Brown Square
+	SetTextColor 0 0 0
+	SetBorderColor 0 0 0
+	SetBackgroundColor 58 255 255
+
+#腐化的宝石
+Show
+	Class "Gem"
+	Corrupted true
+	SetFontSize 35
+	PlayEffect Brown
+	MinimapIcon 0 Brown Square
+	SetTextColor 0 0 0
+	SetBorderColor 0 0 0
+	SetBackgroundColor 58 255 255
+
+	
+
+
+#Size: 0 (大), 1 (中), 2 (小)
+#Color: Red 红, Green 绿, Blue 蓝, Brown , White 白, Yellow 黄
+#Shape: Circle(圆形), Diamond(钻石), Hexagon(六边形), Square(方形), Star(星星), Triangle(三角)
+
+
+	
+#隐藏 金色以下品质的宝石
+Show	
+	Class "Gem"
+	Rarity < Rare
+	SetTextColor 0 0 0
+	SetBorderColor 0 0 0
+	SetBackgroundColor 58 255 255 150
+	
+	
+
+
+	
+#================药水类================
+
+Show	
+	Class "Flask"
+	Rarity > Magic
+	SetFontSize 45
+	SetBorderColor 169 98 22
+	SetTextColor 169 98 22
+	PlayAlertSound 5 300
+	PlayEffect Brown
+	MinimapIcon 0 Brown Triangle
+
+Show	
+	Class "Flask"
+	Rarity > Normal
+	DropLevel >= 65
+Show	
+	Class "Hybrid Flasks"
+	Rarity > Normal
+	DropLevel >= 60
+Show	
+	Class "Utility Flasks" "Critical Utility Flasks"
+	Rarity > Normal
+
+# Show
+Hide
+	Class "Flask"
+
+	
+	
+#================货币类===============
+#比例
+#护甲片			160:1
+#鉴定卷轴		160:1
+#传送卷轴	 	 80:1
+#磨刀石			 75:1
+#蜕变石		 	 70:1
+#普兰德斯金币	 61:1
+
+#增幅石	 		 33:1
+
+#改造石			 12:1
+#幻色石			 12:1	
+#玻璃弹珠		 11:1
+#机会石			  9:1
+#工匠石			  9:1
+#点金石			  5:1
+#银币			  4:1
+#祝福石			  3:1
+#制图钉		      2:1
+#重铸石			  2:1	
+#连结石           2:1       
+#富豪石           2:1 
+#后悔石			  1:1 
+#宝石匠的棱镜     1:1
+#混沌石             1
+#瓦尔石			0.8:1
+
+#神圣石		   0.07:1
+#崇高石		   0.01:1
+
+
+	
+Show
+	Class "Currency"
+	#BaseType "神圣石" "崇高石" "卡兰德"
+	BaseType "Chaos Orb" "Gemcutter's Prism" "Exalted Orb" "Engineer's Orb" "Divine Orb" "Vaal Orb" "Orb of Annulment" "Ancient Orb" "Orb of Horizons" "Harbinger's Orb" "Mirror of Kalandra" "Annulment Shard" "Mirror Shard" "Exalted Shard" "Binding Shard" "Horizon Shard" "Harbinger's Shard" "Engineer's Shard" "Ancient Shard" "Chaos Shard" "Regal Shard" "Apprentice Cartographer's Sextant" "Journeyman Cartographer's Sextant" "Master Cartographer's Sextant" "Blessing of Xoph" "Blessing of Tul" "Blessing of Esh" "Blessing of Uul-Netol" "Blessing of Chayula" "Splinter of Chayula" 
+	SetTextColor 0 0 0
+	SetBorderColor 0 0 0
+	SetBackgroundColor 255 91 209
+	SetFontSize 45
+	CustomAlertSound "mp3\ohyes.wav"
+	PlayEffect Red
+	MinimapIcon 0 Red Circle
+
+	
+
+
+
+#声音
+#5		火球
+#7		先驱
+#9     传奇？	
+# Size: 0 (大), 1 (中), 2 (小)
+# Color: Red, Green, Blue, Brown, White, Yellow
+# Shape: Circle(圆形), Diamond(钻石), Hexagon(六边形), Square(方形), Star(星星), Triangle(三角)
+
+Show
+	#上等 1-4c
+	Class "Currency"
+    #BaseType "增幅石" "改造石" "幻色石" "玻璃弹珠" "机会石" "工匠石" "点金石" "银币" "祝福石" "制图钉" "重铸石" "链结石" "富豪石" "后悔石" "宝石匠的棱镜" "瓦尔石" "混沌石"
+	BaseType "Orb of Regret" "Regal Orb" "Orb of Alchemy" "Orb of Binding" "Splinter of Xoph" "Cartographer's Chisel" "Orb of Fusing" "Orb of Scouring" 祝福石
+	SetTextColor 0 0 0
+	SetBorderColor 0 0 0
+	SetBackgroundColor 255 255 0
+	SetFontSize 45
+	PlayAlertSound 7 300
+	PlayEffect Green
+	MinimapIcon 0 Yellow Triangle
+		
+#叠堆数量大于4的
+Show
+	Class "Currency"
+	StackSize >= 4
+	SetTextColor 0 0 0
+	SetBorderColor 0 0 0
+	SetBackgroundColor 235 205 0
+	SetFontSize 40
+	PlayEffect Yellow
+	MinimapIcon 0 Yellow Star
+
+
+
+#显示 中等 可选择无视 价值 < 1c
+Show
+	Class "Currency"
+	#BaseType "混沌石碎片" "富豪石碎片" "移除石碎片" "捆绑石碎片" "地界石碎片" "技师石碎片" "远古石碎片" "磨刀石" "传送卷轴" "蜕变石" "普兰德斯金币"
+	BaseType "Splinter of Uul-Netol" "Silver Coin" "Perandus Coin"
+	SetTextColor 0 0 0
+	SetBorderColor 0 0 0
+	SetBackgroundColor 235 205 0
+	SetFontSize 40
+	PlayEffect Yellow
+	MinimapIcon 0 Yellow Star
+		
+#隐藏 不值钱的
+Show
+# Hide
+	Class "Currency"
+	#BaseType "护甲片" "蜕变石碎片"  "传送卷轴" "点金石碎片" "改造石碎片" "鉴定卷轴"
+	BaseType "蜕变石碎片" "Orb of Alteration" "Chromatic Orb" "Jeweller's Orb" "Orb of Chance" "Blessed Orb" "Scroll of Wisdom" "Portal Scroll" "Armourer's Scrap" "Blacksmith's Whetstone" "Glassblower's Bauble" "Orb of Transmutation" "Orb of Augmentation" "Eternal Orb" "Splinter of Tul" "Splinter of Esh"
+	SetTextColor 0 0 0
+	SetBorderColor 0 0 0
+	SetBackgroundColor 205 223 77 150
+	SetFontSize 35
+	# PlayEffect Yellow
+
+
+
+
+#显示 全局通币
+#大字体
+Show
+	Class "Currency"
+	SetBorderColor 0 0 0
+	SetBackgroundColor 235 255 0
+	SetTextColor 0 0 0
+	SetFontSize 45
+
+	
+	
+
+#塑界者地图
+Show
+	ShapedMap True
+	SetFontSize 45
+	PlayEffect Brown
+	MinimapIcon 0 Brown Triangle
+
+
+#=================地图类===========================
+
+Show
+	Class "Maps"
+	BaseType 剧毒水道
+	ItemLevel >= 60
+	SetFontSize 45
+	SetBorderColor 182 170 169 255
+	SetTextColor 182 170 169 255
+	SetBackgroundColor 0 0 0
+	PlayEffect White
+	MinimapIcon 0 White Star
+
+Show
+	Class "Maps"
+	MapTier >= 10
+	SetFontSize 45
+	SetBorderColor 182 170 169 255
+	SetTextColor 182 170 169 255
+	SetBackgroundColor 0 0 0
+	PlayEffect Red
+	MinimapIcon 0 Red Star
+Show
+	Class "Maps"
+	MapTier >= 5
+	SetFontSize 45
+	SetBorderColor 182 170 169 255
+	SetTextColor 182 170 169 255
+	SetBackgroundColor 0 0 0
+	PlayEffect Yellow
+	MinimapIcon 0 Yellow Star
+
+
+Show
+	Class "Maps"
+	Rarity >= Rare
+
+
+Show
+	Class "Maps"
+	MapTier < 5
+
+
+
+
+	
+
+#=================装备类===========================
+
+
+##有词缀的
+##手套 鞋 头 项链
+#Show 
+#	BaseType "Spiked Gloves" "Gripped Gloves" "Fingerless Silk Gloves" "Golden Caligae" "Avian Slippers" "Two-Toned Boots" "Golden Wreath" "Bone Helmet" "Gold Amulet" "Deadhand Talisman" "Rot Head Talisman" "Chrysalis Talisman" "Wereclaw Talisman" "Fangjaw Talisman" "Spinefuse Talisman" "Monkey Twins Talisman" 
+#	ItemLevel >= 54
+#	SetBorderColor 255 255 255
+##戒指
+#Show 
+#	BaseType "Coral Ring" "Diamond Ring" "Two-Stone Ring" "Opal Ring" "Steel Ring" 
+#	ItemLevel >= 44
+#	SetBorderColor 255 255 255
+##腰带	
+#Show 
+#	BaseType "Leather Belt" "Golden Obi"  
+#	ItemLevel >= 64
+#	SetBorderColor 255 255 255
+##胸甲
+#	BaseType "Golden Mantle" "Carnal Armour"	
+#	ItemLevel >= 81
+#	SetBorderColor 255 255 255
+##盾
+#	BaseType "Copper Tower Shield" "Bronze Tower Shield" "Ezomyte Tower Shield" "War Buckler" "Battle Buckler" "Crusader Buckler" "Bone Spirit Shield" "Ivory Spirit Shield" "Fossilised Spirit Shield" "Fir Round Shield" "Maple Round Shield" "Teak Round Shield" "Ceremonial Kite Shield" "Angelic Kite Shield" "Archon Kite Shield" "Golden Flame" 
+#	ItemLevel >= 73
+#	SetBorderColor 255 255 255
+	
+	
+
+
+
+#显示 五连以上的装备
+Show	
+	LinkedSockets >= 5	
+	SetTextColor 120 96 249
+	SetBorderColor 120 96 249
+	SetBackgroundColor 	0 0 0
+	PlayAlertSound 5 300
+	SetFontSize 45
+	PlayEffect Brown
+	MinimapIcon 0 Brown Triangle
+	
+#显示 六孔装备
+Show	
+	Sockets > 5
+	SetTextColor 0 0 0
+	SetBorderColor 255 255 255
+	SetBackgroundColor 	175 96 37
+	PlayAlertSound 5 300
+	SetFontSize 45
+	PlayEffect Brown
+	MinimapIcon 0 Brown Triangle
+
+
+#塑界者物品
+Show
+	ShaperItem True
+	SetFontSize 45
+	SetBorderColor 255 0 0
+	SetTextColor 255 0 0
+	SetFontSize 45
+	PlayAlertSound 3 300
+	PlayEffect Brown
+	MinimapIcon 0 Brown Triangle
+			
+#尊师物品
+Show
+	ElderItem True
+	SetFontSize 45
+	PlayAlertSound 3 300
+	PlayEffect Brown
+	MinimapIcon 0 Brown Triangle
+
+
+
+#显示 物品等于大于60的金装首饰
+Show
+    Class "珠宝"
+    Rarity >= Rare
+	SetFontSize 45
+	SetBorderColor 255 156 43 255
+	SetTextColor 255 156 43 255
+	SetBackgroundColor 0 0 0
+
+# Size: 0 (大), 1 (中), 2 (小)
+# Color: Red, Green, Blue, Brown, White, Yellow
+# Shape: Circle(圆形), Diamond(钻石), Hexagon(六边形), Square(方形), Star(星星), Triangle(三角)
+
+
+
+#===============开坑 ===============================
+#显示 开坑 3连以上的装备
+# Show	
+# 	LinkedSockets >= 4
+# 	Class ""
+# 	SetTextColor 120 96 249
+# 	SetBorderColor 120 96 249
+# 	SetBackgroundColor 	0 0 0
+# 	SetFontSize 45
+# 	PlayEffect Brown
+
+
+
+
+# #显示 开坑 3连以上的装备
+# Show	
+# 	LinkedSockets >= 4
+# 	Class "腰带" "胸甲" "头部" "手套" "鞋子" 
+# 	SetTextColor 120 96 249
+# 	SetBorderColor 120 96 249
+# 	SetBackgroundColor 	0 0 0
+# 	SetFontSize 45
+# 	PlayEffect Brown
+
+
+#闪避类型 菊花衣 狮子头  迷踪手套  擒拿手套
+Show
+	BaseType "Zodiac Leather" "Lion Pelt" "Slink Gloves" "Gripped Gloves"
+	Rarity >= Rare
+	SetTextColor 0 0 0
+	SetBorderColor 0 0 0
+	SetBackgroundColor 255 91 209
+	SetFontSize 45
+	CustomAlertSound "mp3\ohyes.wav"
+	PlayEffect Red
+	MinimapIcon 0 Red Square
+	
+
+#闪避系列 容错高
+Show
+	BaseType "Zodiac Leather" "Lion Pelt" "Exquisite Leather" "Assassin's Garb" "Sinner Tricorne" "Silken Hood" 
+	Rarity >= Rare
+	SetTextColor 0 0 0
+	SetBorderColor 0 0 0
+	SetBackgroundColor 255 91 209
+	SetFontSize 45
+	CustomAlertSound "mp3\ohyes.wav"
+	PlayEffect Red
+	MinimapIcon 0 Red Square
+	
+
+# Show
+# 	HasExplicitMod  运动员的
+# 	SetFontSize 45
+# 	PlayEffect Brown
+# 	MinimapIcon 0 Brown Triangle
+# 	SetTextColor 0 0 0
+# 	SetBorderColor 0 0 0
+# 	SetBackgroundColor 255 91 209
+# 	SetFontSize 45
+# 	CustomAlertSound "mp3\ohyes.wav"
+
+#换点金碎片
+#混沌抗性 技能石等级 稀有度 晕眩回复和格挡回复 弓技能石等级 长杖火技能石 冰技能石 电技能石 混沌技能石 近战技能石
+Show
+	HasExplicitMod  "失落之" 放逐之 驱逐之 出境之 流亡之 巴曼斯之 "复生者的" 召唤者的 召唤师的 "喜鹊的" 海盗的 龙的 掠夺的 扫荡的 考古的 挖掘的 "甲虫的" 螃蟹的 犰狳的 犀牛的 大象的 长毛象的 厚皮之 石皮之 铁皮之 钢皮之 金刚皮之 玉皮之 "弓箭专家的" 神枪手的 "火焰飞旋的" 岩浆呼唤的 "冰霜织女的" 寒冰使者的 "雷神的" 风暴王者的 "虚无主义的" 无序的 "战斗的" 武器大师的
+	SetFontSize 45
+	PlayEffect Yellow
+	MinimapIcon 0 Yellow Triangle
+	SetTextColor 0 0 0
+	SetBorderColor 0 0 0
+	SetBackgroundColor 255 205 0
+	SetFontSize 45
+	CustomAlertSound "mp3\ohyes.wav"
+
+
+
+
+#腐化的东西
+Show
+	Corrupted true
+	Class 戒指 腰带 项链
+	Rarity >= Rare
+	#SetBorderColor 255 0 0
+	SetTextColor 255 0 0
+	SetBorderColor 0 255 42 255
+	SetFontSize 45
+	PlayEffect Brown
+	MinimapIcon 0 Brown Triangle
+
+
+
+#腐化的东西
+Show
+	Corrupted true
+	Class "头部" "手套" "鞋子"
+	Rarity >= Rare
+	#SetBorderColor 255 0 0
+	SetTextColor 255 0 0
+	SetBorderColor 0 43 235 255
+	SetFontSize 45
+	PlayEffect Brown
+	MinimapIcon 0 Brown Triangle
+
+
+#腐化的东西
+Show
+	Corrupted true
+	Rarity >= Rare
+	SetBorderColor 255 0 0
+	SetTextColor 255 0 0
+	SetFontSize 45
+	PlayEffect Brown
+	MinimapIcon 0 Brown Triangle
+
+
+
+#隐藏所有装备	
+Hide
+	Corrupted true
+	Class "弓" "细剑" "法杖" "爪" "匕首" "单手剑" "单手斧" "单手锤" "长杖" "双手剑" "双手斧" "双手锤" "杖" "手套" "鞋子" "胸甲" "头部" "盾" "箭袋" "戒指" "项链" "腰带"
+	Rarity <= Rare
+
+#腐化的东西
+Show
+	Corrupted true
+	SetBorderColor 255 0 0
+	SetTextColor 255 0 0
+	SetFontSize 45
+	PlayEffect Brown
+	MinimapIcon 0 Brown Triangle
+
+
+   
+
+#显示 等级大于75的金装 加上边框 换富豪石
+# Show
+# 	Class "胸甲" "头部" "手套" "鞋子"
+# 	Rarity = Rare	
+# 	ItemLevel >= 75
+# 	SetFontSize 45
+# 	SetBorderColor 255 255 0
+# 	SetTextColor 255 255 0
+# 	SetBackgroundColor 0 0 0
+# 	SetFontSize 35
+
+# Show
+# 	Class 双手 弓
+# 	ItemLevel >= 75
+# 	Height < 4
+# 	SetBorderColor 235 0 0 255
+# 	SetTextColor 235 205 0
+# 	SetBackgroundColor 0 0 0
+# 	Rarity = Rare
+# 	SetFontSize 30
+
+# Show
+# 	Class 单手
+# 	Width 1
+# 	ItemLevel >= 75
+# 	Height < 4
+# 	SetBorderColor 235 0 0 255
+# 	SetTextColor 235 205 0
+# 	SetBackgroundColor 0 0 0
+# 	Rarity = Rare
+# 	SetFontSize 30
+
+
+
+
+
+#显示 物品等于大于60的金装首饰
+Show
+    Class "戒指" "项链" "腰带" 
+    Rarity = Rare	
+	ItemLevel >= 60
+	SetFontSize 45
+	SetBorderColor 0 255 42 255
+	SetTextColor 255 205 0
+	SetBackgroundColor 8 8 8 255
+	PlayEffect Yellow
+	MinimapIcon 0 Red Triangle
+
+
+#显示 等级大于60的金装 加上边框 换混沌石
+Show
+	Class "头部" "手套" "鞋子" 
+	ItemLevel >= 60
+
+	SetBorderColor 0 43 235 255
+	SetTextColor 235 205 0
+	SetBackgroundColor 0 0 0
+	Rarity = Rare
+	SetFontSize 30
+
+Show
+	Class "双手" "弓" "胸甲"
+	ItemLevel >= 60
+	Height < 4
+	SetBorderColor 235 0 0 255
+	SetTextColor 235 205 0
+	SetBackgroundColor 0 0 0
+	Rarity = Rare
+	SetFontSize 30
+	
+Show
+	Class 单手 杖 匕首
+	Width 1
+	ItemLevel >= 60
+	Height < 4
+	SetBorderColor 235 0 0 255
+	SetTextColor 235 205 0
+	SetBackgroundColor 0 0 0
+	Rarity = Rare
+	SetFontSize 30
+
+
+	
+Show
+	Class 单手锤
+	ItemLevel >= 60
+	SetBorderColor 235 0 0 255
+	SetTextColor 235 205 0
+	SetBackgroundColor 0 0 0
+	Rarity = Rare
+	SetFontSize 30
+
+
+
+
+# #显示 3连以上的装备
+# Show	
+# 	LinkedSockets >= 3	
+# 	SetTextColor 120 96 249
+# 	SetBorderColor 120 96 249
+# 	SetBackgroundColor 	0 0 0
+# 	SetFontSize 45
+# 	PlayEffect Brown
+
+
+
+# #显示 三连色
+# Show
+# 	SocketGroup RGB
+# 	SetTextColor 255 255 255
+# 	SetBorderColor 120 96 249
+# 	SetBackgroundColor 0 0 0
+# 	SetFontSize 35
+
+# #显示 破岩锤 换图钉
+# Show 
+# 	BaseType "破岩锤" "石锤"
+# 	Quality > 10
+# 	SetFontSize 45
+
+
+
+	
+#隐藏所有装备	
+Hide
+	Class "弓" "细剑" "法杖" "爪" "匕首" "单手剑" "单手斧" "单手锤" "长杖" "双手剑" "双手斧" "双手锤" "杖" "手套" "鞋子" "胸甲" "头部" "盾" "箭袋" "戒指" "项链" "腰带"
+	Rarity <= Rare
+   
+Show	
+	SetFontSize 45

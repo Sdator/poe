@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<ArrayOfResource xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Resource Tag="ApplyTranslations_TextReplaced">
+    <Text>  Replacing '{0}' with '{1}'</Text>
+  </Resource>
+  <Resource Tag="CollectTranslatableStrings_FailedReading">
+    <Text>Failed to read {0}: {1}</Text>
+  </Resource>
+  <Resource Tag="Error">
+    <Text>Error</Text>
+  </Resource>
+  <Resource Tag="GetTranslatableDatStrings_TotalStrings">
+    <Text>Total Strings: {0}</Text>
+  </Resource>
+  <Resource Tag="Load_GGPK_Filter">
+    <Text>GGPK Pack File|*.ggpk</Text>
+  </Resource>
+  <Resource Tag="MainWindow_Button_ApplyAll">
+    <Text>Apply all</Text>
+  </Resource>
+  <Resource Tag="MainWindow_Button_ApplyAllToFile">
+    <Text>Apply all to File</Text>
+  </Resource>
+  <Resource Tag="MainWindow_Button_RevertAll">
+    <Text>Revert all</Text>
+  </Resource>
+  <Resource Tag="MainWindow_Button_SaveConfig">
+    <Text>Save config</Text>
+  </Resource>
+  <Resource Tag="MainWindow_InvalidFileFilter">
+    <Text>Invalid file filter for GGPK files: {0}</Text>
+  </Resource>
+  <Resource Tag="ReadTranslationData_Successful">
+    <Text>Translations read: {0}</Text>
+  </Resource>
+  <Resource Tag="ReloadAllData_Failed">
+    <Text>Failed to load config: {0}</Text>
+  </Resource>
+  <Resource Tag="SaveTranslationData_Successful">
+    <Text>Translations read: {0}</Text>
+  </Resource>
+  <Resource Tag="StringEditor_DeleteTranslation">
+    <Text>Delete '{0}'?</Text>
+  </Resource>
+  <Resource Tag="StringEditor_DeleteTranslation_Caption">
+    <Text>Delete translation?</Text>
+  </Resource>
+  <Resource Tag="StringEditor_Label_Original">
+    <Text>Original:</Text>
+  </Resource>
+  <Resource Tag="StringEditor_Label_Replacement">
+    <Text>Replacement:</Text>
+  </Resource>
+  <Resource Tag="StringEditor_Label_Translation">
+    <Text>Replacement:</Text>
+  </Resource>
+  <Resource Tag="WindowClosing_Save">
+    <Text>Save file before continuing?</Text>
+  </Resource>
+  <Resource Tag="WindowClosing_Save_Title">
+    <Text>Save</Text>
+  </Resource>
+</ArrayOfResource>

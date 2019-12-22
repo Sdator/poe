@@ -1,0 +1,6 @@
+click
+      sleep，1000
+      click
+
+
+二、Click right  ；这是在当前位置点击鼠标右键。

@@ -1,7 +1,0 @@
-﻿;F1升级宝石
-f1::Send {enter}hg{enter}
-f2::Send {enter}hc{enter}
-f3::Send {enter}官方QQ群210194284{enter}
-f4::Send {enter}官方QQ群272145344{enter}
-f5::Send {enter}羁绊YY直播频道201778{enter}
-f6::Send {enter}谢谢大家支持冬冬游戏{enter}

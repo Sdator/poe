@@ -1,16 +1,20 @@
-ï»¿@echo off
+@echo off
 pushd %~dp0
+
+
+code  .
+exit
 
 set "CodeData=%appdata%\Code\"
 set "BACK=%appdata%\Code\Backups"
 set "INFO=%USERPROFILE%\storage.json"
 set "FILE=%~dp0.vscode\storage.json"
 
-rem é¢„å¤„ç†
+rem Ô¤´¦Àí
 rd /S /Q "%BACK%"
 mklink /D "%BACK%" "%~dp0.vscode\Backups"
 
-rem åˆ›å»ºå¤‡ä»½ é˜²æ­¢ç¡¬é“¾æ¥è¢«é”™è¯¯åˆ é™¤
+rem ´´½¨±¸·İ ·ÀÖ¹Ó²Á´½Ó±»´íÎóÉ¾³ı
 copy %FILE% %FILE%.back
 del /Q "%INFO%"
 
@@ -18,6 +22,3 @@ mklink /H "%INFO%" %FILE%.back
 
 
 pause
-code  .
-exit
-

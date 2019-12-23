@@ -6,7 +6,7 @@
         {
             "label": "AHK",
             "type": "shell",
-            "command": ".\\AutoHotkeyU64.exe",
+            "command": ".\\工具\\AHK\\AutoHotkeyU64.exe",
             "args": [
                 "${file}"
             ]

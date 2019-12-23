@@ -23,16 +23,20 @@ Home::isrun:=!isrun
 Return
 
 ; 药 + 地雷 + buff
-*q::Send "12345d{Numpad1}{Numpad2}"
+*q::Send "12345d{Numpad1}{Numpad2}{Numpad3}"
 
 ; 位移 + 地雷 + buff
-~*d::Send "q{Numpad1}{Numpad2}"
+~*d::Send "q{Numpad1}{Numpad2}{Numpad3}"
 
 ; 传送
 *f::Send "{Numpad4}"
 
+; 正火
+*v::Send "{MButton}"
+
+
 ;加速药 + 地雷 + buff
-*1::Send "d{Numpad1}{Numpad2}"
+*1::Send "d{Numpad1}{Numpad2}{Numpad3}"
 
 ; 下矿 照明 地雷
 *2::Send "6"

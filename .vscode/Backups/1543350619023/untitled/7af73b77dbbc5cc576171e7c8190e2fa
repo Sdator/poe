@@ -1,0 +1,51 @@
+untitled:Untitled-3
+
+/**
+ * 枚举元素颜色 冒泡
+ * 1.无法捕获 canvas 画布中绘制的颜色 只用于捕获元素
+ * 2.优先获取内联样式>内外部样式>字体颜色
+ * 3.由于无法捕获样式是否被改动过, 元素自身是存在默认样式的, 所以当元素颜色设置为 rgba(0, 0, 0, 0) 本程序会一律判定为未初始化的默认样式,略过处理 
+ * @param $e MouseEvent @事件
+ * @param $model Number @模式 非0只获取顶层元素,默认为0枚举所有,有效元素中可能出现颜色
+ */
+function getRGB(e, model = 0) {
+    if (model) {
+        //单纯取顶层元素
+        const dom = e.path[0];
+        const rgb = dom.style.backgroundColor || getComputedStyle(dom).backgroundColor != "rgba(0, 0, 0, 0)" ? getComputedStyle(dom).backgroundColor : getComputedStyle(dom).color;
+        const tmp = /\((.*)\)/g.exec(rgb)[1].replace(/,/g, ' ');
+        复制到剪切板(tmp);
+        //console.log(tmp);
+    }
+    else {
+        const arr = e.path;
+        arr.splice(-3);
+        let rgb = "", outrgb = "";
+        for (const dom of arr) {
+            if (dom instanceof HTMLElement) {
+                const tmp = dom.style.backgroundColor || getComputedStyle(dom).backgroundColor != "rgba(0, 0, 0, 0)" ? getComputedStyle(dom).backgroundColor : getComputedStyle(dom).color;
+                //const tmp =  rgb.match(/\d+/g).join(" ");     //无法解决小数点问题
+                const fitStr = /\((.*)\)/g.exec(tmp)[1].replace(/,/g, '')
+                rgb += fitStr + "\x0c";
+                outrgb += fitStr + "\n";   //格式化用
+            }
+        }
+        复制到剪切板(rgb);
+        console.log(outrgb);
+    }
+}
+function 复制到剪切板(s) {
+    const val = s
+    const inputEle = document.createElement('input')
+    document.body.appendChild(inputEle)
+    inputEle.setAttribute('value', val)
+    inputEle.setAttribute('readonly', 'readonly')
+    inputEle.select()
+    document.execCommand('copy')
+    document.body.removeChild(inputEle)
+}
+window.addEventListener('click', (e) => {
+    e.stopPropagation();
+    getRGB(e);
+}, true);
+

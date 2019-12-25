@@ -1,3 +1,13 @@
+
+/*
+2019.12.25   By:絕版大叔、 250740270
+
+常用命令
+*   异步    即使其他按键按下也能触发当前按键 
+~   保留    保留按键原有的功能 而不是全部接管
+
+*/
+
 ; 跳过对话框并自动替换旧实例, 效果类似于 Reload 函数.
 #SingleInstance Force
     
@@ -7,7 +17,7 @@ global isrun := Flash
 
 ; #If WinActive("ahk_exe start_for_wegame.exe") && isrun
 #IF WinActive("ahk_exe start_for_wegame.exe") || WinActive("ahk_exe PathOfExile_x64.exe") && isrun
-
+    
 
 ; 释放地雷 + 引爆
 ~*RButton up::
@@ -47,14 +57,10 @@ Return
 */
 
 ; 鼠标4 5键切换背包
-XButton1::
-    Send "{Right}"
-Return
+XButton1::Send "{Right}"
+XButton2::Send "{Left}"
 
-XButton2::
-    Send "{Left}"
-Return
-
+; 功能键
 ; f2::Send "{enter}/2{enter}"
 f3::Send "{enter}/1{enter}"
 f4::Send "{enter}/c{enter}"

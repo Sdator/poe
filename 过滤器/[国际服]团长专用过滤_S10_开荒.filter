@@ -722,36 +722,36 @@ Show
 
 #====================换混沌===============================
 
-# # 6格双手武器和衣服
-# Show
-# 	Class 胸甲 弓 双手
-# 	Rarity = Rare
-# 	Height < 4
-# 	ItemLevel > 59
-# 	ItemLevel < 74
-# 	SetFontSize 30
-# 	SetBorderColor 235 0 0 255
-# 	SetTextColor 235 205 0
-# 	SetBackgroundColor 0 0 0
-# # 3格武器
-# Show
-# 	Class 单手 杖 匕首
-# 	Rarity = Rare
-# 	Height < 4
-# 	Width < 2
-# 	ItemLevel > 59
-# 	ItemLevel < 74
-# 	SetFontSize 30
-# 	SetBorderColor 235 0 0 255
-# 	SetTextColor 235 205 0
-# 	SetBackgroundColor 0 0 0
+# 6格双手武器和衣服
+Show
+	Class 胸甲 弓 双手
+	Rarity = Rare
+	Height < 4
+	ItemLevel > 59
+	# ItemLevel < 74
+	SetFontSize 30
+	SetBorderColor 235 0 0 255
+	SetTextColor 235 205 0
+	SetBackgroundColor 0 0 0
+# 3格武器
+Show
+	Class 单手 杖 匕首
+	Rarity = Rare
+	Height < 4
+	Width < 2
+	ItemLevel > 59
+	# ItemLevel < 74
+	SetFontSize 30
+	SetBorderColor 235 0 0 255
+	SetTextColor 235 205 0
+	SetBackgroundColor 0 0 0
 
 #显示 等级大于60的金装  换混沌石
 Show
 	Class "头部" "手套" "鞋子" 
 	Rarity = Rare
 	ItemLevel > 59
-	ItemLevel < 74
+	# ItemLevel < 74
 	SetFontSize 30
 	SetBorderColor 235 205 0
 	SetTextColor 235 205 0

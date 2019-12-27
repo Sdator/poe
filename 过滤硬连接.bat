@@ -10,7 +10,6 @@ rem 处理过滤文件
 for /r %%i in (*.filter) do (
     rem 硬链接 过滤文件到我的文档下 poe 目录
     mklink /H "%USERPROFILE%\Documents\My Games\Path of Exile\%%~nxi" "%%i"
-   
 )
 
 pause

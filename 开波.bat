@@ -1,24 +1,18 @@
 @echo off
 pushd %~dp0
 
-
-code  .
-exit
-
 set "CodeData=%appdata%\Code\"
 set "BACK=%appdata%\Code\Backups"
-set "INFO=%USERPROFILE%\storage.json"
+set "INFO=%appdata%\Code\storage.json"
 set "FILE=%~dp0.vscode\storage.json"
 
-rem 预处理
 rd /S /Q "%BACK%"
+del /F /Q "%INFO%"
+
 mklink /D "%BACK%" "%~dp0.vscode\Backups"
+mklink /H "%INFO%" "%FILE%"
 
-rem 创建备份 防止硬链接被错误删除
-copy %FILE% %FILE%.back
-del /Q "%INFO%"
-
-mklink /H "%INFO%" %FILE%.back
-
+code  .
 
 pause
+exit

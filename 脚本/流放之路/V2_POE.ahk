@@ -10,13 +10,13 @@
 
 ; 跳过对话框并自动替换旧实例, 效果类似于 Reload 函数.
 #SingleInstance Force
-    
-global isrun := Flash
+
+global isrun
 
 *F1::isrun := ! isrun
 
 ; #If WinActive("ahk_exe start_for_wegame.exe") && isrun
-#IF WinActive("ahk_exe start_for_wegame.exe") || WinActive("ahk_exe PathOfExile_x64.exe") && isrun
+#IF (WinActive("ahk_exe start_for_wegame.exe") || WinActive("ahk_exe PathOfExile_x64.exe")) && isrun
     
 
 ; 释放地雷 + 引爆
@@ -38,11 +38,11 @@ Return
 *v::Send "{MButton}"
 
 ;加速药 + 地雷 + buff
-*1::Send "d{Numpad1}{Numpad2}{Numpad3}"
+*1::Send "q12345{Numpad1}{Numpad2}{Numpad3}d"
 
 ; 下矿 照明 地雷
-~*2::Send "6"
-~*3::Send "7"
+~*2::Send "d6"
+~*3::Send "d7"
 
 /*
 ; 下矿 蜡烛和炸弹

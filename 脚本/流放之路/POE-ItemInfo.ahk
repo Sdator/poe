@@ -4484,7 +4484,8 @@ PostProcessData(ParsedData)
             {
                 CurrChunk := RegExReplace(CurrChunk, "Comp\. ", "複")
             }
-
+            ; 正则提取文本
+            ; 不影响原来的 做的翻译模块 ?
             CurrChunk := RegExReplace(CurrChunk, "Suffixes", "後") 
             CurrChunk := RegExReplace(CurrChunk, "Prefixes", "前")
             CurrChunk := RegExReplace(CurrChunk, "Suffix", "後") 

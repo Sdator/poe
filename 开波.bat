@@ -1,16 +1,28 @@
 @echo off
 pushd %~dp0
 
+::VSCODE数据系统默认路径
 set "CodeData=%appdata%\Code\"
-set "BACK=%appdata%\Code\Backups"
-set "INFO=%appdata%\Code\storage.json"
-set "FILE=%~dp0.vscode\storage.json"
 
-rd /S /Q "%BACK%"
-del /F /Q "%INFO%"
+:: 设置源文件所在的系统路径
+set "BACK0=%CodeData%\Backups"
+set "STORAGE0=%CodeData%\storage.json"
+set "KEYSET0=%CodeData%\User\keybindings.json"
 
-mklink /D "%BACK%" "%~dp0.vscode\Backups"
-mklink /H "%INFO%" "%FILE%"
+:: 设置软连接文件的路径
+set "BACK1=%~dp0.vscode\Backups"
+set "STORAGE1=%~dp0.vscode\storage.json"
+set "KEYSET1=%~dp0.vscode\keybindings.json"
+
+:: 清除其他程序的未保存数据的软连接
+rd /S /Q "%BACK0%"
+del /F /Q "%STORAGE0%"
+del /F /Q "%KEYSET0%"
+
+:: 软连接
+mklink /D "%BACK0%" "%BACK1%"
+mklink /H "%STORAGE0%" "%STORAGE1%"
+mklink /H "%KEYSET0%" "%KEYSET1%"
 
 code  .
 

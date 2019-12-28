@@ -1,15 +1,16 @@
 
 /*
-2019.12.25   By:çµ•ç‰ˆå¤§å”ã€ 250740270
+2019.12.25   By:½^°æ´óÊå¡¢ 250740270
 
-å¸¸ç”¨å‘½ä»¤
-*   å¼‚æ­¥    å³ä½¿å…¶ä»–æŒ‰é”®æŒ‰ä¸‹ä¹Ÿèƒ½è§¦å‘å½“å‰æŒ‰é”® 
-~   ä¿ç•™    ä¿ç•™æŒ‰é”®åŸæœ‰çš„åŠŸèƒ½ è€Œä¸æ˜¯å…¨éƒ¨æ¥ç®¡
+³£ÓÃÃüÁî
+*   Òì²½    ¼´Ê¹ÆäËû°´¼ü°´ÏÂÒ²ÄÜ´¥·¢µ±Ç°°´¼ü 
+~   ±£Áô    ±£Áô°´¼üÔ­ÓĞµÄ¹¦ÄÜ ¶ø²»ÊÇÈ«²¿½Ó¹Ü
 
 */
 
-; è·³è¿‡å¯¹è¯æ¡†å¹¶è‡ªåŠ¨æ›¿æ¢æ—§å®ä¾‹, æ•ˆæœç±»ä¼¼äº Reload å‡½æ•°.
-#SingleInstance Force
+; Ìø¹ı¶Ô»°¿ò²¢×Ô¶¯Ìæ»»¾ÉÊµÀı, Ğ§¹ûÀàËÆÓÚ Reload º¯Êı.
+#SingleInstance Force 
+
 
 global isrun
 
@@ -19,33 +20,33 @@ global isrun
 #IF (WinActive("ahk_exe start_for_wegame.exe") || WinActive("ahk_exe PathOfExile_x64.exe")) && isrun
     
 
-; é‡Šæ”¾åœ°é›· + å¼•çˆ†
+; ÊÍ·ÅµØÀ× + Òı±¬
 ~*RButton up::
     Sleep(200)
     Send "d"
 Return
 
-; è¯ + åœ°é›· + buff
+; Ò© + µØÀ× + buff
 *q::Send "12345d{Numpad1}{Numpad2}{Numpad3}"
 
-; ä½ç§» + åœ°é›· + buff
+; Î»ÒÆ + µØÀ× + buff
 ~*d::Send "q{Numpad1}{Numpad2}{Numpad3}"
 
-; ä¼ é€
+; ´«ËÍ
 *f::Send "{Numpad4}"
 
-; æ­£ç«
+; Õı»ğ
 *v::Send "{MButton}"
 
-;åŠ é€Ÿè¯ + åœ°é›· + buff
+;¼ÓËÙÒ© + µØÀ× + buff
 *1::Send "q12345{Numpad1}{Numpad2}{Numpad3}d"
 
-; ä¸‹çŸ¿ ç…§æ˜ åœ°é›·
+; ÏÂ¿ó ÕÕÃ÷ µØÀ×
 ~*2::Send "d6"
 ~*3::Send "d7"
 
 /*
-; ä¸‹çŸ¿ èœ¡çƒ›å’Œç‚¸å¼¹
+; ÏÂ¿ó À¯ÖòºÍÕ¨µ¯
 2::
     Send {6}
 Return
@@ -56,13 +57,24 @@ Return
 Return
 */
 
-; é¼ æ ‡4 5é”®åˆ‡æ¢èƒŒåŒ…
+; Êó±ê4 5¼üÇĞ»»±³°ü
 XButton1::Send "{Right}"
 XButton2::Send "{Left}"
 
-; åŠŸèƒ½é”®
+
+f2::Send "ÊÖ"
+f3::Send "Í·"
+f4::Send "ÍÈ"
+f5::Send "½äÖ¸"
+f6::Send "»¤¼×"
+
+
+/*
+; ¹¦ÄÜ¼ü
 ; f2::Send "{enter}/2{enter}"
 f3::Send "{enter}/1{enter}"
 f4::Send "{enter}/c{enter}"
 ; f5::Send "{enter}/h{enter}"
 f6::Send "{enter}/oos{enter}"
+
+*/

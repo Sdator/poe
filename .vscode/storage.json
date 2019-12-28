@@ -10,8 +10,11 @@
     "themeBackground": "#1e1e1e",
     "windowsState": {
         "lastActiveWindow": {
-            "folder": "file:///c%3A/Git/poe",
-            "backupPath": "c:\\Users\\A\\AppData\\Roaming\\Code\\Backups\\15cc6e33e55662c1e3f98b359f4f449b",
+            "workspaceIdentifier": {
+                "id": "794e573405106713e82bde486ee037d5",
+                "configURIPath": "file:///c%3A/Users/A/AppData/Roaming/Code/Workspaces/1577532349676/workspace.json"
+            },
+            "backupPath": "c:\\Users\\A\\AppData\\Roaming\\Code\\Backups\\794e573405106713e82bde486ee037d5",
             "uiState": {
                 "mode": 0,
                 "x": 301,

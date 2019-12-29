@@ -1,4 +1,3 @@
-
 /*
 2019.12.25   By:絕版大叔、 250740270
 
@@ -10,6 +9,20 @@
 
 ; 跳过对话框并自动替换旧实例, 效果类似于 Reload 函数.
 #SingleInstance Force 
+
+
+OnClipboardChange("ClipboardChange")
+
+ClipboardChange(type){
+    ToolTip("Clipboard data type:" type)
+    ; Sleep 1000
+    ; ToolTip  ; 关闭提示.
+    ; 代替传统方式  1秒后 关闭提示
+    SetTimer () => ToolTip(), -1000
+
+}
+
+
 
 
 global isrun
@@ -77,4 +90,6 @@ f4::Send "{enter}/c{enter}"
 ; f5::Send "{enter}/h{enter}"
 f6::Send "{enter}/oos{enter}"
 
+
 */
+

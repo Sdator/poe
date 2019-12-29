@@ -6173,11 +6173,14 @@ ToolTipTimer:
     }
     return
 
+; 剪切板更改事件
 OnClipBoardChange:
     Global Opts
+    ; 用户自定义 选项?
     If (Opts.OnlyActiveIfPOEIsFront)
     {
         ; do nothing if Path of Exile isn't the foremost window
+        ; 游戏窗口是否在前
         IfWinActive, Path of Exile ahk_class Direct3DWindowClass
         {
             ParseClipBoardChanges()

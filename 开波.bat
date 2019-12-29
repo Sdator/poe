@@ -1,30 +1,29 @@
 @echo off
 pushd %~dp0
 
-::VSCODEæ•°æ®ç³»ç»Ÿé»˜è®¤è·¯å¾„
+::VSCODEÊı¾İÏµÍ³Ä¬ÈÏÂ·¾¶
 set "CodeData=%appdata%\Code\"
 
-:: è®¾ç½®æºæ–‡ä»¶æ‰€åœ¨çš„ç³»ç»Ÿè·¯å¾„
+:: ÉèÖÃÔ´ÎÄ¼şËùÔÚµÄÏµÍ³Â·¾¶
 set "BACK0=%CodeData%\Backups"
 set "STORAGE0=%CodeData%\storage.json"
 set "KEYSET0=%CodeData%\User\keybindings.json"
 
-:: è®¾ç½®è½¯è¿æ¥æ–‡ä»¶çš„è·¯å¾„
+:: ÉèÖÃÈíÁ¬½ÓÎÄ¼şµÄÂ·¾¶
 set "BACK1=%~dp0.vscode\Backups"
 set "STORAGE1=%~dp0.vscode\storage.json"
 set "KEYSET1=%~dp0.vscode\keybindings.json"
 
-:: æ¸…é™¤å…¶ä»–ç¨‹åºçš„æœªä¿å­˜æ•°æ®çš„è½¯è¿æ¥
-REM rd /S /Q "%BACK0%"
+:: Çå³ıÆäËû³ÌĞòµÄÎ´±£´æÊı¾İµÄÈíÁ¬½Ó
+rd /S /Q "%BACK0%"
 REM del /F /Q "%STORAGE0%"
 del /F /Q "%KEYSET0%"
 
-:: è½¯è¿æ¥
-REM mklink /D "%BACK0%" "%BACK1%"
+:: ÈíÁ¬½Ó
+mklink /D "%BACK0%" "%BACK1%"
 REM mklink /H "%STORAGE0%" "%STORAGE1%"
 mklink /H "%KEYSET0%" "%KEYSET1%"
 
-code  .
-
+code  . && exit
 pause
 exit

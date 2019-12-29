@@ -2,7 +2,7 @@
     "telemetry.machineId": "a305edc2d019e93415dc90bff0e7476bb8afe911ffb1724a54074f23a78dd6d3",
     "openedPathsList": {
         "workspaces3": [
-            "file:///d%3A/Git/poe"
+            "file:///c%3A/Git/poe"
         ],
         "files2": []
     },
@@ -10,13 +10,22 @@
     "themeBackground": "#1e1e1e",
     "windowsState": {
         "lastActiveWindow": {
-            "folder": "file:///d%3A/Git/poe",
-            "backupPath": "c:\\Users\\Air\\AppData\\Roaming\\Code\\Backups\\fe241a9a66c8b292968b7e02ccc2c9bc",
+            "workspaceIdentifier": {
+                "id": "794e573405106713e82bde486ee037d5",
+                "configURIPath": "file:///c%3A/Users/A/AppData/Roaming/Code/Workspaces/1577532349676/workspace.json"
+            },
+            "backupPath": "c:\\Users\\A\\AppData\\Roaming\\Code\\Backups\\794e573405106713e82bde486ee037d5",
             "uiState": {
                 "mode": 0,
+<<<<<<< HEAD
                 "x": 176,
                 "y": 375,
                 "width": 1464,
+=======
+                "x": 301,
+                "y": 221,
+                "width": 1024,
+>>>>>>> 14a08036c4794f14b47e7262741bc824c50cbee1
                 "height": 768
             }
         },

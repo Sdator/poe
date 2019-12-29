@@ -9,7 +9,23 @@
             "command": ".\\工具\\AHK\\AutoHotkeyU64.exe",
             "args": [
                 "${file}"
-            ]
+            ],
+            //如果是Windows平台使用cmd来运行脚本
+            "windows": {
+                "runOptions": {
+                    "reevaluateOnRerun": false
+                },
+                "type": "process",
+                "options": {
+                    "shell": {
+                        "executable": "cmd.exe",
+                        "args": [
+                            "/d",
+                            "/c"
+                        ]
+                    }
+                }
+            },
         },
         {
             "label": "echo",

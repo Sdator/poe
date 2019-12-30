@@ -1,0 +1,73 @@
+untitled:Untitled-10
+untitled:Untitled-1
+产品型号    IPhone 6
+产品类型    IPhone7,2
+序列号      F17QGEU4G5MT
+ECID        000E11D218F3E026
+
+user-data-dir=%用户数据% –disk-cache-dir=%缓冲路径%
+
+104.19.185.16
+169.48.194.184      访问难  国内和德国节点服务器
+b8.c2.30a9.ip4.static.sl-reverse.com
+
+205.185.208.180
+vip180.ssl.hwcdn.net        cdn加速服务器、
+
+
+玩poe候选节点
+Dallas
+Chicago
+Los Angeles
+日常用语
+    稍等
+        just a sec please
+    还买吗？
+        hi, are you still interested in winds of change ancient gauntlets for 1.0 chaos?
+
+
+
+游戏节点
+    169.45.87.206
+    169.45.87.210
+    209.191.164.47
+    209.191.164.48      6112
+
+
+路由跟踪
+    windows
+        tracert -d  169.45.87.206
+
+    linux
+        traceroute -n  169.45.87.206
+
+
+
+
+Kb[9#VXk]k6!Gtwp
+
+
+
+官方贸易
+https://www.pathofexile.com/forum/view-thread/2025871
+https://www.pathofexile.com/trade/search/Standard/ljzn8jFV
+
+
+过滤    Item Filter
+    3.3.0   入侵联盟
+        https://www.pathofexile.com/forum/view-thread/2150237
+        https://www.pathofexile.com/forum/view-thread/2150238
+        支持宝石等级和叠堆大小过滤
+
+    3.0.0 Item Filter and Passive Tree Information
+        https://www.pathofexile.com/forum/view-thread/1930848
+
+        新类型
+            New Item Classes
+            New Item Class: Piece
+            New Item Class: Pantheon Soul
+
+
+
+天赋装备模拟器
+    https://github.com/PoESkillTree/PoESkillTree

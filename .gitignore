@@ -1,5 +1,5 @@
 #排除所有文件夹
-.vscode/*
+
 
 .vscode/Code/*
 

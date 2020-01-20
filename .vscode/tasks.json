@@ -28,6 +28,32 @@
             },
         },
         {
+            "label": "AHK 1.3",
+            "type": "shell",
+            "command": ".\\工具\\AutoHotkey_1.1.32.00\\AutoHotkeyU64.exe",
+            "args": [
+                "${file}"
+            ],
+            //如果是Windows平台使用cmd来运行脚本
+            "windows": {
+                "runOptions": {
+                    "reevaluateOnRerun": false
+                },
+                "type": "process",
+                "options": {
+                    "shell": {
+                        "executable": "cmd.exe",
+                        "args": [
+                            "/d",
+                            "/c"
+                        ]
+                    }
+                }
+            },
+        },
+
+
+        {
             "label": "echo",
             "type": "shell",
             "command": "echo",

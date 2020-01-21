@@ -26,6 +26,9 @@ PY
     ahk 0.6.2
         https://pypi.org/project/ahk/#deps
 
+    pywinauto   有控件 如提示工具  面向对象方式
+        https://pywinauto.readthedocs.io/en/latest/code/pywinauto.controls.common_controls.html#pywinauto.controls.common_controls.ToolTip
+
 
 
 无头浏览器

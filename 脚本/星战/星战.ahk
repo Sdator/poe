@@ -9,6 +9,7 @@
     PressKey := false
     Home::
         PressKey := ! PressKey
+       
         loop{
             SetTimer, myhalfsec, 500
 

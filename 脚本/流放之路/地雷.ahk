@@ -1,10 +1,10 @@
 #SingleInstance Force
     
-q::
-    Sleep(1000)
-    send "td"
-return
 
+~*RButton up::
+    Sleep(200)
+    Send "d"
+Return
 
 ; Air 250740270 2019.12.21
 

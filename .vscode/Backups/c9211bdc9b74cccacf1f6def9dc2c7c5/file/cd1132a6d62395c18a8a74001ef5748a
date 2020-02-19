@@ -1,4 +1,5 @@
-﻿/*
+file:///e%3A/Git/poe/%E8%84%9A%E6%9C%AC/%E6%B5%81%E6%94%BE%E4%B9%8B%E8%B7%AF/V2_POE.ahk {"mtime":1578061060375,"ctime":1577266143647,"size":2574,"etag":"34dsliaki2l1","orphaned":false}
+/*
 2019.12.25   By:絕版大叔、 250740270
 
 常用命令
@@ -9,6 +10,7 @@
 
 ; 跳过对话框并自动替换旧实例, 效果类似于 Reload 函数.
 #SingleInstance Force 
+    
 
 global isrun
 

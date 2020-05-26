@@ -1,3 +1,3 @@
-;F1Éı¼¶±¦Ê¯
+;F1å‡çº§å®çŸ³
 f1::Send {enter}hg{enter}
 f2::Send {enter}hc{enter}

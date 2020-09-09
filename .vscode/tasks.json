@@ -6,7 +6,7 @@
         {
             "label": "AHK v2",
             "type": "shell",
-            "command": ".\\工具\\AHK\\AutoHotkeyU64.exe",
+            "command": ".\\工具\\AHK_V2\\AutoHotkeyU64.exe",
             "args": [
                 "${file}"
             ],
@@ -30,7 +30,7 @@
         {
             "label": "AHK v1.3",
             "type": "shell",
-            "command": ".\\工具\\AutoHotkey_1.1.32.00\\AutoHotkeyU64.exe",
+            "command": ".\\工具\\AHK_V1\\AutoHotkeyU64.exe",
             "args": [
                 "${file}"
             ],
@@ -51,7 +51,6 @@
                 }
             },
         },
-
         {
             "label": "test",
             "type": "shell",
@@ -76,7 +75,6 @@
                 }
             },
         },
-
         {
             "label": "echo",
             "type": "shell",

@@ -1,8 +1,10 @@
 {
     "files.autoGuessEncoding": true,
-    "ahk.executableFullPath": "D:\\Git\\poe\\工具\\tools\\AutoHotkey_1.1.32.00\\AutoHotkeyU64.exe",
-    "vscode-ahk-plus.compilePath": "D:/Apps/AHK_V2/Compiler/Ahk2Exe.exe",
-    // "vscode-ahk-plus.executePath": "D:/Apps/AHK_V2/AutoHotkeyU64.exe"
-    "vscode-ahk-plus.executePath": "D:/Git/poe/工具/AHK_V2/AutoHotkeyU64.exe"
-    // "vscode-ahk-plus.executePath": "D:/Git/poe/工具/AHK_V1/AutoHotkeyU64.exe"
+    "vscode-ahk-plus.compilePath": "D:/Git/poe/工具/AHK_V2/Compiler/Ahk2Exe.exe",
+    "vscode-ahk-plus.executePath": "D:/Git/poe/工具/AHK_V2/AutoHotkeyU64.exe",
+    "code-runner.executorMap": {
+        // "ahk": "$workspaceRoot/工具/AHK_V2/AutoHotkeyU64.exe /CP65001",
+        "ahk": "\"D:\\Git\\poe\\工具\\AHK_V2\\AutoHotkeyU64.exe\""
+    },
+    "code-runner.clearPreviousOutput": true
 }

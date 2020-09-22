@@ -1,3 +1,9 @@
+# 用途
+#   从仓库中历史中永久删除文件
+# 参考
+#   https://docs.github.com/en/github/authenticating-to-github/removing-sensitive-data-from-a-repository
+#   https://docs.github.com/en/github/managing-large-files/removing-files-from-a-repositorys-history
+
 files="*.zip"
 
 # 把现有提交的记录删除

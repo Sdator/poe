@@ -39,6 +39,17 @@ Home::{
 global isOnClick:=False
 
 End::{
+    isOnClick := !isOnClick
+    if isOnClick{
+        SetTimer "AutoClick",1
+        ; SetTimer "AutoClickA",200
+    }
+    else
+    {
+        ; SetTimer "AutoClickA",0
+        SetTimer "AutoClick",0
+    }
+
     ; MsgBox(control_handle)
     ; 获得控件
     ; ControlGetHwnd
@@ -52,28 +63,15 @@ End::{
     ;     OutputDebug v[1] ":" v[2]
     ;     ControlClick ,"Cunt Empire - Google Chrome",,"LEFT",,"NA X" v[1] " Y" v[2]
     ; }
-
-    ; OutputDebug arr[1][1]
-    ; OutputDebug arr[2]
-    isOnClick := !isOnClick
-    ; if isOnClick{
-    ;     SetTimer "AutoClick",500
-    ;     SetTimer "AutoClickA",1000
-    ; }
-    ; else
-    ; {
-    ;     SetTimer "AutoClickA",0
-    ;     SetTimer "AutoClick",0
-    ; }
     ; SetControlDelay -1
-    WM_PARENTNOTIFY := 0x210
-    WM_LBUTTONDOWN := 0x201
-    WM_LBUTTONUP := 0x202
-    WM_WINDOWPOSCHANGING := 0x46
-    WM_CAPTURECHANGED := 0x215
+    ; WM_PARENTNOTIFY := 0x210
+    ; WM_LBUTTONDOWN := 0x201
+    ; WM_LBUTTONUP := 0x202
+    ; WM_WINDOWPOSCHANGING := 0x46
+    ; WM_CAPTURECHANGED := 0x215
 
     ; SendMessage WM_PARENTNOTIFY, WM_LBUTTONDOWN, 0xEE00D3, , "Cunt Empire - Google Chrome"
-    PostMessage WM_WINDOWPOSCHANGING, 0, 0xBFE030, , "Cunt Empire - Google Chrome"
+    ; PostMessage WM_WINDOWPOSCHANGING, 0, 0xBFE030, , "Cunt Empire - Google Chrome"
     ; PostMessage WM_LBUTTONUP, 0, 0xEE00D3, , "Cunt Empire - Google Chrome"
     ; SendMessage WM_CAPTURECHANGED, 0, 0, , "Cunt Empire - Google Chrome"
 
@@ -81,18 +79,11 @@ End::{
 
 ; 后台自动点击
 AutoClickA(){
-    ; ControlClick ,"Cunt Empire - Google Chrome",,"LEFT",,"NA X384 Y277"
-    ; WM_PARENTNOTIFY
-    ; IDSTR(WM_LBUTTONDOWN),"按下鼠标左键",
-    ; IDSTR(WM_LBUTTONUP),"释放鼠标左键",
-
-    ; PostMessage, Msg, [wParam, lParam, Control, WinTitle, WinText, ExcludeTitle, ExcludeText]
-    ; SendMessage, Msg, [wParam, lParam, Control, WinTitle, WinText, ExcludeTitle, ExcludeText, Timeout]
-    ; PostMessage WM_PARENTNOTIFY, WM_LBUTTONDOWN, 0xEE00D3, Control, "Cunt Empire - Google Chrome"
+    ControlClick ,"Cunt Empire - Google Chrome",,"LEFT",,"NA X405 Y356"
 }
 ; 后台自动点击
 AutoClick(){
-    ; ControlClick ,"Cunt Empire - Google Chrome",,"LEFT",,"NA X218 Y237"
+    ControlClick ,"Cunt Empire - Google Chrome",,"LEFT",,"NA X309 Y338"
 }
 
 ; 按下左击或F1 键开启连发

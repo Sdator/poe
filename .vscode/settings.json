@@ -1,10 +1,14 @@
 {
+    // 解决 git 插件中文乱码问题
     "files.autoGuessEncoding": true,
+    // 插件 AHK 程序路径
     "vscode-ahk-plus.compilePath": "D:/Git/poe/工具/AHK_V2/Compiler/Ahk2Exe.exe",
     "vscode-ahk-plus.executePath": "D:/Git/poe/工具/AHK_V2/AutoHotkeyU64.exe",
+    // 插件 run code 配置 ahk 路径
     "code-runner.executorMap": {
         // "ahk": "$workspaceRoot/工具/AHK_V2/AutoHotkeyU64.exe /CP65001",
         "ahk": "\"D:\\Git\\poe\\工具\\AHK_V2\\AutoHotkeyU64.exe\""
     },
+    // 每次运行清屏
     "code-runner.clearPreviousOutput": true
 }

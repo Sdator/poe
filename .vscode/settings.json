@@ -1,6 +1,5 @@
 {
-    // 解决 git 插件中文乱码问题
-    "files.autoGuessEncoding": true,
+
     // 插件 AHK 程序路径
     "vscode-ahk-plus.compilePath": "D:/Git/poe/工具/AHK_V2/Compiler/Ahk2Exe.exe",
     "vscode-ahk-plus.executePath": "D:/Git/poe/工具/AHK_V2/AutoHotkeyU64.exe",

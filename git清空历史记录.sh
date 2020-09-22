@@ -4,7 +4,9 @@ files="*.zip"
 git rm --cached $files
 # 重新提交 覆盖上一次提交
 git commit --amend -CHEAD
-
+# ===================
+# 从历史中永久移除
+# ===================
 # 递归删除符合类型的文件
 git filter-branch --force --index-filter \
     "git rm --cached --ignore-unmatch $files" \
@@ -27,3 +29,12 @@ git push origin --force --tags
 
 # 查看状态
 git stash show
+
+# 寻找文件
+# find .git/objects -type f
+# .git/objects/7f/a055b2d22855b67287e4e30d9a91584c8b27c1
+# 递归显示文件大小 大小自动匹配
+# du -ah    # 此处略去了无关输出
+#  54M    ./.git/objects/7f/a055b2d22855b67287e4e30d9a91584c8b27c1
+#  77M    ./bigfile
+# 132M    .

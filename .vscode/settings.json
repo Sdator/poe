@@ -6,5 +6,17 @@
         // "ahk": "$workspaceRoot/工具/AHK_V2/AutoHotkeyU64.exe /CP65001",
         "ahk": "\"D:\\Git\\poe\\工具\\AHK_V2\\AutoHotkeyU64.exe\""
     },
-    "code-runner.clearPreviousOutput": true
+    "code-runner.clearPreviousOutput": true,
+    // au3脚本配置
+    // "autoit.aiPath": "C:\\ScoopApp\\AutoIt\\current\\AutoIt3_x64.exe",
+    // "autoit.infoPath": "C:\\ScoopApp\\AutoIt\\current\\Au3Info_x64.exe",
+    // "autoit.tidyPath": "C:\\ScoopApp\\AutoIt\\current\\Tidy\\Tidy.exe",
+    // // "autoit.wrapperPath": "C:\\ScoopApp\\AutoIt\\current\\AutoIt3Wrapper\\AutoIt3Wrapper.au3",
+    // "autoit.tidyPath": "C:\\ScoopApp\\autoit-script-editor\\current\\Tidy\\Tidy.exe",
+    // "autoit.wrapperPath": "C:\\ScoopApp\\autoit-script-editor\\current\\AutoIt3Wrapper\\AutoIt3Wrapper.au3",
+    // "autoit.checkPath": "C:\\ScoopApp\\AutoIt\\current\\AU3Check.exe",
+    // "autoit.helpPath": "C:\\ScoopApp\\AutoIt\\current\\AutoIt3Help.exe",
+    // "autoit.includePaths": [
+    //     "C:\\ScoopApp\\AutoIt\\current\\Include"
+    // ]
 }

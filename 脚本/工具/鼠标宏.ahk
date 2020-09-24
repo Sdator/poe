@@ -37,18 +37,18 @@ Home::{
 }
 
 global isOnClick:=False
-
+global xy
 End::{
     isOnClick := !isOnClick
-    if isOnClick{
+    if isOnClick
+    {
+        ; 记录程序启动瞬间的鼠标位置,用于默认点击
+        MouseGetPos nx,ny
+        xy := Format("NA X{1} Y{2}",nx,ny)
         SetTimer "AutoClick",1
-        ; SetTimer "AutoClickA",200
     }
     else
-    {
-        ; SetTimer "AutoClickA",0
         SetTimer "AutoClick",0
-    }
 
     ; MsgBox(control_handle)
     ; 获得控件
@@ -79,11 +79,22 @@ End::{
 
 ; 后台自动点击
 AutoClickA(){
-    ControlClick ,"Cunt Empire - Google Chrome",,"LEFT",,"NA X405 Y356"
+    ; ControlClick ,"Cunt Empire - Google Chrome",,"LEFT",,"NA X405 Y356"
+    OutputDebug 2222222
+    ; ControlClick ,"Cunt Empire - Google Chrome",,"LEFT",,"NA X309 Y338"
 }
+
+global x:=0,y:=0,lx:=0,ly:=0
+
 ; 后台自动点击
 AutoClick(){
-    ControlClick ,"Cunt Empire - Google Chrome",,"LEFT",,"NA X309 Y338"
+    ; 实时坐标
+    MouseGetPos x,y
+    if(x == lx)
+        ControlClick ,"Cunt Empire - Google Chrome",,"LEFT",,xy
+
+    ; 上一次的坐标
+    lx := x
 }
 
 ; 按下左击或F1 键开启连发

@@ -29,81 +29,142 @@
 ;~ Next
 
 $isRun=False
+$isSet=False
 
-HotkeySet("{Home}", "state")
+HotkeySet("{Home}", "AutoRun")
+HotkeySet("{End}", "IsRun")
 
-;~ 防止程序自动退出
+;~ 休眠
 While true
-    Sleep(100)
-    $pos = MouseGetPos()            ; 当前鼠标位置
-    $gcp = WinGetCaretPos()         ; 当前窗口左上角坐标 相对于屏幕的
-    $gap = WinGetPos("[ACTIVE]")    ; 当前窗口相对于屏幕的坐标
-    $sControl = ControlGetFocus("[ACTIVE]")  ;文本区域 "句柄" 返回指定窗口上键盘焦点所在的控件的类别名.
-    $cgp = ControlGetPos("[ACTIVE]", "", $sControl)  ;文本区域坐标 控件相对父窗口的坐标和大小
-
-    $cgp = ControlGetPos("[ACTIVE]", "", "[CLASS:Intermediate D3D Window; INSTANCE:1]")
-    if(IsArray($cgp)) Then
-        $strpos = & StringFormat("鼠标坐标 -> %s : %s%s", $pos[0],$pos[1],@CRLF) _
-            & StringFormat("窗口鼠标坐标 -> %s : %s%s", $pos[0] - $gap[0], $pos[1] - $gap[1],@CRLF) _
-            & StringFormat("子窗口坐标 -> %s : %s%s", $pos[0] - $gap[0]-$cgp[0],$pos[1] - $gap[1]-$cgp[1],@CRLF) _  ;子窗口相对父窗口的位置
-            & StringFormat("WinGetPos -> %s : %s ： %s : %s%s", $gap[0],$gap[1],$gap[2],$gap[3],@CRLF) _
-            & StringFormat("ControlGetFocus -> %s%s", $sControl,@CRLF) _
-            & StringFormat("长度 -> %s%s", UBound($cgp),@CRLF) _
-            & StringFormat("ControlGetPos -> %s : %s : %s : %s%s", $cgp[0],$cgp[1],$cgp[2],$cgp[3],@CRLF) _
-            & StringFormat("WinGetCaretPos -> %s : %s%s", $gcp[0],$gcp[1],@CRLF) _
-
-        ToolTip( $strpos,@DesktopWidth/2,@DesktopHeight	/2)
-    EndIf
-
+    Sleep(10000)
 WEnd
 
-
-;~ autoRun()
-
-Func state()
-    ;~ PostButtonClick(0,$pos[0],$pos[1])
-    $isRun= NOT $isRun
-    if($isRun) Then
-        $pos = MouseGetPos()
-        ;~ ControlGetPos ( "Cunt Empire - Google Chrome", "")
-        ;~ PostButtonClick(0,$pos[0],$pos[1])
-        echo($pos[0])
-        echo($pos[1])
-    EndIf
+Func IsRun()
+    $isRun = Not $isRun
+    ;~ 修改鼠标连续点击之间的停顿时间.
+    ;~ Opt("MouseClickDelay",1)
 EndFunc
 
-
-Func autoRun()
-    ;~ 创建结构体
-    $rInfo = DllStructCreate("uint;dword")      ; # LASTINPUTINFO
-    ;~ 填充结构体数据
-    DllStructSetData($rInfo, 1, DllStructGetSize($rInfo))
-    ;~ 旧的状态
-    $old=DllCall("user32.dll", "int", "GetLastInputInfo", "ptr", DllStructGetPtr($rInfo))
-    $num=0
+;~ Opt("MouseCoordMode",0)
+Func ShowWindInfo()
+    ;~ 防止程序自动退出
     While true
-        ;~ 获取输入设备空闲状态
-        DllCall("user32.dll", "int", "GetLastInputInfo", "ptr", DllStructGetPtr($rInfo))
-        ;~ 从结构体中读取数值
-        $nLastInput = DllStructGetData($rInfo, 2)
-        If ($nLastInput>$old And $isRun) Then
-            $num+=1
-            echo($num)
-            ;~ DllCall("user32.dll", "int", "PostMessageA", "ptr",)
+        Sleep(500)
+        $pos = MouseGetPos()            ; 当前鼠标位置
+        $gcp = WinGetCaretPos()         ; 当前窗口左上角坐标 窗口插入符的坐标
+        $gap = WinGetPos("[ACTIVE]")    ; 当前窗口相对于屏幕的坐标  可获得窗口实际的位置 包含预留的位置
+        $sControl = ControlGetFocus("[ACTIVE]")  ;文本区域 "句柄" 返回指定窗口上键盘焦点所在的控件的类别名.
+        $cgp = ControlGetPos("[ACTIVE]", "", $sControl)  ;文本区域坐标 控件相对父窗口的坐标和大小
+
+
+        if(IsArray($cgp)) Then
+            ;~ 窗口相对坐标
+            $wPosX = $pos[0] - $gap[0]
+            $wPosY = $pos[1] - $gap[1]
+            ;~ 控件相对窗口坐标
+            $cPosX = $pos[0] - $gcp[0]
+            $cPosY = $pos[1] - $gcp[1]
+
+            $strpos = StringFormat("鼠标坐标 -> %s : %s%s", $pos[0],$pos[1],@CRLF) _
+                & StringFormat("窗口相对坐标 -> %s : %s%s", $wPosX, $wPosY,@CRLF) _
+                & StringFormat("控件相对坐标 -> %s : %s%s", $cPosX, $cPosY,@CRLF) _
+                & StringFormat("WinGetPos -> %s : %s ： %s : %s%s", $gap[0],$gap[1],$gap[2],$gap[3],@CRLF) _
+                & StringFormat("ControlGetPos -> %s : %s : %s : %s%s", $cgp[0],$cgp[1],$cgp[2],$cgp[3],@CRLF) _
+                & StringFormat("WinGetCaretPos -> %s : %s%s", $gcp[0],$gcp[1],@CRLF) _
+                ;~ & StringFormat("ControlGetFocus -> %s%s", $sControl,@CRLF) _
+                ;~ & StringFormat("长度 -> %s%s", UBound($cgp),@CRLF) _
+
+            ToolTip( $strpos,@DesktopWidth/4,@DesktopHeight	/2)
         EndIf
-        $old=$nLastInput
     WEnd
 EndFunc
 
 
 
-; RePost a WM_COMMAND message to a ctrl in a gui window
+
+Func ShowWindState()
+    $isSet = Not $isSet
+    ;~ 设置获取鼠标位置的方式为相对于窗口
+    Opt("MouseCoordMode",$isSet)
+    ;~ 窗口模式
+    ;~  Opt("WinTitleMatchMode",4)
+    ;~ 获取窗口句柄
+    $wHWND = WinGetHandle ("Cunt Empire - Google Chrome")
+    ;~ 获取控件句柄
+    $cHWND = ControlGetHandle(HWnd($wHWND),"","[CLASS:Intermediate D3D Window; INSTANCE:1]")
+
+    While 0
+        Sleep(500)
+        $pos = MouseGetPos()  ; 当前鼠标位置
+        $wSize = WinGetClientSize(HWnd($wHWND)) ; 取窗口大小
+        $cSize = WinGetClientSize(HWnd($cHWND)) ; 取控件大小  获取窗口客户区的大小.
+        $wwgp = WinGetPos(HWnd($wHWND)) ;获取父窗口相对于 桌面的位置
+        $cwgp = WinGetPos(HWnd($cHWND)) ;获取子窗口相对于 桌面的位置
+
+        $cx =  $pos[0] - $cwgp[0]
+        $cy =  $pos[1] - $cwgp[1]
+
+        $wx =  $pos[0] - $wwgp[0]
+        $wy =  $pos[1] - $wwgp[1]
+
+        $s = StringFormat("窗口句柄 -> %s%s窗口大小 -> %s:%s%s", $wHWND, @CRLF, $wSize[0], $wSize[1], @CRLF) _
+            & StringFormat("控件句柄 -> %s%s窗口大小 -> %s:%s%s", $cHWND, @CRLF, $cSize[0], $cSize[1], @CRLF) _
+            & StringFormat("鼠标坐标 -> %s:%s%s", $pos[0], $pos[1], @CRLF) _
+            & StringFormat("窗口坐标 -> %s:%s%s", $wx, $wy, @CRLF) _
+            & StringFormat("相对坐标 -> %s:%s%s", $cx, $cy, @CRLF) _
+            & StringFormat("当前模式 -> %s%s",  $isSet, @CRLF) _
+            & StringFormat("ww -> %s:%s%s", $wwgp[0], $wwgp[1], @CRLF) _
+            & StringFormat("cw -> %s:%s%s", $cwgp[0], $cwgp[1], @CRLF) _
+
+        ToolTip( $s,@DesktopWidth/2, @DesktopHeight/2)
+    WEnd
+
+EndFunc
+
+
+Func AutoRun()
+    ;~ 获取窗口句柄
+    $wHWND = WinGetHandle ("Cunt Empire - Google Chrome")
+    ;~ 获取控件句柄
+    $cHWND = ControlGetHandle(HWnd($wHWND),"","[CLASS:Intermediate D3D Window; INSTANCE:1]")
+
+    $pos = MouseGetPos()  ; 当前鼠标位置
+    $cwgp = WinGetPos(HWnd($cHWND)) ;获取子窗口相对于 桌面的位置
+    $cx =  $pos[0] - $cwgp[0]
+    $cy =  $pos[1] - $cwgp[1]
+
+    ;~ 创建结构体
+    $rInfo = DllStructCreate("uint;dword")      ; # LASTINPUTINFO
+    ;~ 填充结构体数据
+    DllStructSetData($rInfo, 1, DllStructGetSize($rInfo))
+    ;~ 旧的状态
+    Global $old=DllCall("user32.dll", "int", "GetLastInputInfo", "ptr", DllStructGetPtr($rInfo))
+    Global $nLastInput=DllCall("user32.dll", "int", "GetLastInputInfo", "ptr", DllStructGetPtr($rInfo))
+    While true
+        ;~ 获取输入设备空闲状态
+        DllCall("user32.dll", "int", "GetLastInputInfo", "ptr", DllStructGetPtr($rInfo))
+        ;~ 从结构体中读取数值
+        $nLastInput = DllStructGetData($rInfo, 2)
+        If ( ($nLastInput==$old) And $isRun) Then ; 当没有操作 并且 允许状态
+            ControlClick(HWnd($wHWND), "", "", "left", 1, $cx, $cy)
+            $old=$nLastInput
+            ContinueLoop
+        EndIf
+        $old=$nLastInput
+        Sleep(500)   ; 当用户操作给 0.5秒延迟
+    WEnd
+EndFunc
+
+
+
+; post window 鼠标点击消息
 Func PostButtonClick($hWnd, $x, $y)
-    $HWND_BROADCAST = 65535
+    $HWND_BROADCAST = 65535  ; BitOR($hWnd, $HWND_BROADCAST)
     $WM_LBUTTONDOWN = 0x201
     $WM_LBUTTONUP = 0x202
+
     DllCall("user32.dll", "int", "PostMessage", _
-            "hwnd", BitOR($hWnd, $HWND_BROADCAST), _ ; 窗口句柄 默认设置为顶层窗口
+            "hwnd",$hWnd, _ ; 窗口句柄 默认设置为顶层窗口
             "int", $WM_LBUTTONDOWN, _ ; 事件类型 鼠标按下
             "int", 0, _ ;wParam
             "hwnd", $x + BitShift($y,-16)) ;lParam

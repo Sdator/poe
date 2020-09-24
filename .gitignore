@@ -1,14 +1,2 @@
 #排除所有文件夹
-
-
-.vscode/Code/*
-
-!.vscode/Code/
-!.vscode/Code/Backups/
-
-.vscode/Code/User/*
-!.vscode/Code/User/
-!.vscode/Code/User/keybindings.json
-
-
-/工具/*/
+/工具/

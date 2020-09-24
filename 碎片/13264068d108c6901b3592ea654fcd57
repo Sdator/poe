@@ -1,0 +1,54 @@
+untitled:Untitled-1
+    
+
+OnClipboardChange("ClipboardChange")
+
+ClipboardChange(type){
+    ToolTip("Clipboard data type:" type)
+    ; Sleep 1000
+    ; ToolTip  ; 关闭提示.
+    ; 代替传统方式  1秒后 关闭提示
+    SetTimer () => ToolTip(), -1000
+    
+}
+
+; FileEncoding "UTF-8"
+
+F9::
+    ; Send "{ASC 54992}"
+    ; Send '"' . SendString("ufgf中554654") . '"'
+    
+    Send "{ASC 54992}"
+    
+    
+    
+    ; Send "{enter}"
+    ; ; Send "{U+". Format("{1:#x}",Ord("中")) . "}"
+    ; Send Ord("中")
+    ; Send "{enter}"
+    ; Send Format("{u+{:+x}}",Ord("中"))
+return
+
+SendString( string )
+{
+    Len := StrLen(string)  ; 得到字符串的长度，注意一个中文字符的长度是2，即占2个字节
+    
+    Keys := ""                  ; 将要发送的字符序列
+    Index := 0
+    str := ""
+    Loop Len
+    {
+        Index += 1
+        str := SubStr(string, Index, 1)
+        ; 字符2的ASCII码
+        Code1 := Ord( str )    ; 得到第一个字符的ASCII值
+        If (Code1>255){
+            str := Format("{U+{:+x}}",Code1)
+            
+        }
+        Keys .= str
+        
+    }
+    MsgBox Keys
+return Keys
+}

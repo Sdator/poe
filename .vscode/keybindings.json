@@ -1,0 +1,9 @@
+// 将键绑定放在此文件中以覆盖默认值
+[
+    {
+        "key": "f5",
+        "command": "workbench.action.tasks.runTask",
+        "args": "AHK",
+        "when": "editorTextFocus"
+    }
+]

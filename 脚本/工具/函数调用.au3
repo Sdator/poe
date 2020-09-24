@@ -32,24 +32,45 @@ $isRun=False
 
 HotkeySet("{Home}", "state")
 
+;~ 防止程序自动退出
 While true
+    Sleep(100)
+    $pos = MouseGetPos()            ; 当前鼠标位置
+    $gcp = WinGetCaretPos()         ; 当前窗口左上角坐标 相对于屏幕的
+    $gap = WinGetPos("[ACTIVE]")    ; 当前窗口相对于屏幕的坐标
+    $sControl = ControlGetFocus("[ACTIVE]")  ;文本区域 "句柄" 返回指定窗口上键盘焦点所在的控件的类别名.
+    $cgp = ControlGetPos("[ACTIVE]", "", $sControl)  ;文本区域坐标 控件相对父窗口的坐标和大小
+
+    $cgp = ControlGetPos("[ACTIVE]", "", "[CLASS:Intermediate D3D Window; INSTANCE:1]")
+    if(IsArray($cgp)) Then
+        $strpos = & StringFormat("鼠标坐标 -> %s : %s%s", $pos[0],$pos[1],@CRLF) _
+            & StringFormat("窗口鼠标坐标 -> %s : %s%s", $pos[0] - $gap[0], $pos[1] - $gap[1],@CRLF) _
+            & StringFormat("子窗口坐标 -> %s : %s%s", $pos[0] - $gap[0]-$cgp[0],$pos[1] - $gap[1]-$cgp[1],@CRLF) _  ;子窗口相对父窗口的位置
+            & StringFormat("WinGetPos -> %s : %s ： %s : %s%s", $gap[0],$gap[1],$gap[2],$gap[3],@CRLF) _
+            & StringFormat("ControlGetFocus -> %s%s", $sControl,@CRLF) _
+            & StringFormat("长度 -> %s%s", UBound($cgp),@CRLF) _
+            & StringFormat("ControlGetPos -> %s : %s : %s : %s%s", $cgp[0],$cgp[1],$cgp[2],$cgp[3],@CRLF) _
+            & StringFormat("WinGetCaretPos -> %s : %s%s", $gcp[0],$gcp[1],@CRLF) _
+
+        ToolTip( $strpos,@DesktopWidth/2,@DesktopHeight	/2)
+    EndIf
 
 WEnd
+
 
 ;~ autoRun()
 
 Func state()
+    ;~ PostButtonClick(0,$pos[0],$pos[1])
     $isRun= NOT $isRun
     if($isRun) Then
         $pos = MouseGetPos()
-        ControlGetPos ( "Cunt Empire - Google Chrome", "" )
+        ;~ ControlGetPos ( "Cunt Empire - Google Chrome", "")
         ;~ PostButtonClick(0,$pos[0],$pos[1])
         echo($pos[0])
         echo($pos[1])
     EndIf
 EndFunc
-
-
 
 
 Func autoRun()

@@ -30,22 +30,23 @@
 
 $isRun=False
 $isSet=False
+$isPgup=False
+$num=0
+
 
 HotkeySet("{Home}", "AutoRun")
 HotkeySet("{End}", "IsRun")
+HotkeySet("{pgup}", "AutoClick")
+HotkeySet("{pgdn}", "ShowWindState")
 
 ;~ 休眠
 While true
     Sleep(10000)
 WEnd
 
-Func IsRun()
-    $isRun = Not $isRun
-    ;~ 修改鼠标连续点击之间的停顿时间.
-    ;~ Opt("MouseClickDelay",1)
-EndFunc
 
 ;~ Opt("MouseCoordMode",0)
+;~ 显示基础信息
 Func ShowWindInfo()
     ;~ 防止程序自动退出
     While true
@@ -73,19 +74,30 @@ Func ShowWindInfo()
                 & StringFormat("WinGetCaretPos -> %s : %s%s", $gcp[0],$gcp[1],@CRLF) _
                 ;~ & StringFormat("ControlGetFocus -> %s%s", $sControl,@CRLF) _
                 ;~ & StringFormat("长度 -> %s%s", UBound($cgp),@CRLF) _
-
             ToolTip( $strpos,@DesktopWidth/4,@DesktopHeight	/2)
         EndIf
     WEnd
 EndFunc
 
+;~ 还原设置
+Func DefSet($MouseCoordMode=Default, $MouseClickDelay=Default)
+    Opt("MouseCoordMode",$MouseCoordMode);~ 窗口捕获模式
+    Opt("MouseClickDelay",$MouseClickDelay);~ 鼠标点击的间隔
+EndFunc
 
 
 
 Func ShowWindState()
     $isSet = Not $isSet
     ;~ 设置获取鼠标位置的方式为相对于窗口
-    Opt("MouseCoordMode",$isSet)
+    If ($isSet) Then
+        $mode=0
+    else
+        $mode=2
+    EndIf
+
+    DefSet($mode)
+
     ;~ 窗口模式
     ;~  Opt("WinTitleMatchMode",4)
     ;~ 获取窗口句柄
@@ -93,7 +105,7 @@ Func ShowWindState()
     ;~ 获取控件句柄
     $cHWND = ControlGetHandle(HWnd($wHWND),"","[CLASS:Intermediate D3D Window; INSTANCE:1]")
 
-    While 0
+    While 1
         Sleep(500)
         $pos = MouseGetPos()  ; 当前鼠标位置
         $wSize = WinGetClientSize(HWnd($wHWND)) ; 取窗口大小
@@ -118,41 +130,74 @@ Func ShowWindState()
 
         ToolTip( $s,@DesktopWidth/2, @DesktopHeight/2)
     WEnd
+EndFunc
 
+Func AutoClick()
+    ;~  客户区坐标、鼠标点击间隔
+    DefSet(Default,1)
+    $isPgup = Not $isPgup
+    While $isPgup
+        MouseClick("left")
+    WEnd
 EndFunc
 
 
-Func AutoRun()
-    ;~ 获取窗口句柄
-    $wHWND = WinGetHandle ("Cunt Empire - Google Chrome")
-    ;~ 获取控件句柄
-    $cHWND = ControlGetHandle(HWnd($wHWND),"","[CLASS:Intermediate D3D Window; INSTANCE:1]")
+;~ 状态控制
+Func IsRun()
+    $isRun = Not $isRun
+EndFunc
 
+;~ 半后台post点击
+Func AutoRun()
+
+    ;~ Opt("MouseClickDelay",5);~ 修改鼠标点击的间隔
+    ;~ Opt("MouseCoordMode",2) ;~ 使用客户区坐标
+    DefSet(2,4)
+
+    ;~ 获取窗口句柄
+    $wHWND = HWnd(WinGetHandle ("Cunt Empire - Google Chrome"))
     $pos = MouseGetPos()  ; 当前鼠标位置
-    $cwgp = WinGetPos(HWnd($cHWND)) ;获取子窗口相对于 桌面的位置
-    $cx =  $pos[0] - $cwgp[0]
-    $cy =  $pos[1] - $cwgp[1]
+    $cx =  $pos[0]
+    $cy =  $pos[1]
+
+    ;~ $isRun = Not $isRun
+
+    ;~ 已用 MouseCoordMode 配置来实现 客户区域模式下操作
+    ;~ $wHWND = HWnd(WinGetHandle ("Cunt Empire - Google Chrome")) ;~ 获取窗口句柄
+    ;~ $cHWND = ControlGetHandle($wHWND,"","[CLASS:Intermediate D3D Window; INSTANCE:1]");~ 获取控件句柄
+    ;~ $pos = MouseGetPos()  ; 当前鼠标位置
+    ;~ $cwgp = WinGetPos(HWnd($cHWND)) ;获取子窗口相对于 桌面的位置
+    ;~ $cx =  $pos[0] - $cwgp[0]
+    ;~ $cy =  $pos[1] - $cwgp[1]
 
     ;~ 创建结构体
     $rInfo = DllStructCreate("uint;dword")      ; # LASTINPUTINFO
     ;~ 填充结构体数据
     DllStructSetData($rInfo, 1, DllStructGetSize($rInfo))
-    ;~ 旧的状态
-    Global $old=DllCall("user32.dll", "int", "GetLastInputInfo", "ptr", DllStructGetPtr($rInfo))
-    Global $nLastInput=DllCall("user32.dll", "int", "GetLastInputInfo", "ptr", DllStructGetPtr($rInfo))
+    ;~ 获取结构体指针地址
+    $addr = DllStructGetPtr($rInfo)
+
+    ;~ 预先打开需要使用的 dll 直接调用预先打开的 dll 句柄
+    $dll = DllOpen("user32.dll")
+
+    ;~ 上一次输入设备的状态
+    $old=0
+
     While true
         ;~ 获取输入设备空闲状态
-        DllCall("user32.dll", "int", "GetLastInputInfo", "ptr", DllStructGetPtr($rInfo))
+        DllCall($dll, "int", "GetLastInputInfo", "ptr", $addr)
         ;~ 从结构体中读取数值
         $nLastInput = DllStructGetData($rInfo, 2)
         If ( ($nLastInput==$old) And $isRun) Then ; 当没有操作 并且 允许状态
-            ControlClick(HWnd($wHWND), "", "", "left", 1, $cx, $cy)
-            $old=$nLastInput
+            ControlClick($wHWND, "", "", "left", 1, $cx, $cy)
+            $old = $nLastInput
             ContinueLoop
         EndIf
         $old=$nLastInput
         Sleep(500)   ; 当用户操作给 0.5秒延迟
     WEnd
+    ;~ 这里永远不会执行 所以让程序退出的时候自动释放 dll
+    ;~ DllClose($dll)
 EndFunc
 
 
@@ -169,8 +214,6 @@ Func PostButtonClick($hWnd, $x, $y)
             "int", 0, _ ;wParam
             "hwnd", $x + BitShift($y,-16)) ;lParam
 EndFunc   ;==>PostButtonClick
-
-
 
 
 Func echo($v)
@@ -205,12 +248,3 @@ EndFunc
 ;~     GUIctrlSetData($x,$a[0])
 ;~     GUIctrlSetData($y,$a[1])
 ;~ EndFunc
-
-;~ MsgBox(0, "第二个脚本！", "此对话框从函数中调出！")
-
-
-;~ 函数调用
-;~ TestFunc()
-Func TestFunc()
-    MsgBox(0, "第二个脚本！", "此对话框从函数中调出！")
-EndFunc

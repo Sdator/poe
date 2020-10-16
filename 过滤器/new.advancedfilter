@@ -1,0 +1,10 @@
+
+Show "Variable Sample"
+    Class "Gem"
+    BaseType Var("White Gems")
+    SetBackgroundColor 255 255 255 255
+
+Show "Color Sample"
+    Class "Currency"
+    SetBackgroundColor 50 0 0 255
+    SetTextColor Var("Currency Color")

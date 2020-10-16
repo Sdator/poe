@@ -39,6 +39,10 @@ HotkeySet("{End}", "IsRun")
 HotkeySet("{pgup}", "AutoClick")
 HotkeySet("{pgdn}", "ShowWindState")
 
+;~ HotkeySet("{pgdn}", "setkey")
+
+
+
 ;~ 休眠
 While true
     Sleep(10000)
@@ -194,7 +198,7 @@ Func AutoRun()
             ContinueLoop
         EndIf
         $old=$nLastInput
-        Sleep(500)   ; 当用户操作给 0.5秒延迟
+        Sleep(2000)   ; 当用户操作给 0.5秒延迟
     WEnd
     ;~ 这里永远不会执行 所以让程序退出的时候自动释放 dll
     ;~ DllClose($dll)

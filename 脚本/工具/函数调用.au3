@@ -61,6 +61,10 @@ EndFunc
 
 ;~ HotkeySet("{pgdn}", "ShowWindState")
 
+;~ HotkeySet("{pgdn}", "setkey")
+
+
+
 ;~ 休眠
 While true
     ;~ v()

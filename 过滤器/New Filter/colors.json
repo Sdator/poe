@@ -1,0 +1,294 @@
+[
+    {
+        "name": "0 Color",
+        "hex": "#a96216"
+    },
+    {
+        "name": "1 Color",
+        "hex": "#000000"
+    },
+    {
+        "name": "2 Color",
+        "hex": "#21b8ff"
+    },
+    {
+        "name": "3 Color",
+        "hex": "#3affff"
+    },
+    {
+        "name": "4 Color",
+        "hex": "#ff5bd1"
+    },
+    {
+        "name": "5 Color",
+        "hex": "#ebcd00"
+    },
+    {
+        "name": "6 Color",
+        "hex": "#cddf4d"
+    },
+    {
+        "name": "7 Color",
+        "hex": "#ffffff"
+    },
+    {
+        "name": "8 Color",
+        "hex": "#7860f9"
+    },
+    {
+        "name": "9 Color",
+        "hex": "#af6025"
+    },
+    {
+        "name": "10 Color",
+        "hex": "#ff0000"
+    },
+    {
+        "name": "11 Color",
+        "hex": "#ff392b"
+    },
+    {
+        "name": "12 Color",
+        "hex": "#ffff00"
+    },
+    {
+        "name": "13 Color",
+        "hex": "#ffcd00"
+    },
+    {
+        "name": "14 Color",
+        "hex": "#080808"
+    },
+    {
+        "name": "Normal Item Color",
+        "rgb": [
+            200,
+            200,
+            200
+        ]
+    },
+    {
+        "name": "Magic Item Color",
+        "rgb": [
+            136,
+            136,
+            255
+        ]
+    },
+    {
+        "name": "Rare Item Color",
+        "rgb": [
+            255,
+            255,
+            119
+        ]
+    },
+    {
+        "name": "Unique Item Color",
+        "rgb": [
+            175,
+            96,
+            37
+        ]
+    },
+    {
+        "name": "Skill Gem Color",
+        "rgb": [
+            27,
+            162,
+            155
+        ]
+    },
+    {
+        "name": "Currency Color",
+        "rgb": [
+            170,
+            158,
+            130
+        ]
+    },
+    {
+        "name": "Quest Item Color",
+        "rgb": [
+            74,
+            230,
+            58
+        ]
+    },
+    {
+        "name": "Divination Card Color",
+        "rgb": [
+            14,
+            186,
+            255
+        ]
+    },
+    {
+        "name": "Default Text Color",
+        "rgb": [
+            127,
+            127,
+            127
+        ]
+    },
+    {
+        "name": "Value Text Color",
+        "rgb": [
+            255,
+            255,
+            255
+        ]
+    },
+    {
+        "name": "Augmented Value Text Color",
+        "rgb": [
+            136,
+            136,
+            255
+        ]
+    },
+    {
+        "name": "Fire Damage Color",
+        "rgb": [
+            150,
+            0,
+            0
+        ]
+    },
+    {
+        "name": "Cold Damage Color",
+        "rgb": [
+            54,
+            100,
+            146
+        ]
+    },
+    {
+        "name": "Lightning Damage Color",
+        "rgb": [
+            255,
+            215,
+            0
+        ]
+    },
+    {
+        "name": "Chaos Damage Color",
+        "rgb": [
+            208,
+            32,
+            144
+        ]
+    },
+    {
+        "name": "Crafted Mod Color",
+        "rgb": [
+            184,
+            218,
+            242
+        ]
+    },
+    {
+        "name": "Corrupted Color",
+        "rgb": [
+            210,
+            0,
+            0
+        ]
+    },
+    {
+        "name": "Supporter Pack New Item Color",
+        "rgb": [
+            180,
+            96,
+            0
+        ]
+    },
+    {
+        "name": "Supporter Pack Item Color",
+        "rgb": [
+            163,
+            141,
+            109
+        ]
+    },
+    {
+        "name": "Nemesis Mod Color",
+        "rgb": [
+            255,
+            200,
+            0
+        ]
+    },
+    {
+        "name": "Nemesis Mod Outline Color",
+        "rgb": [
+            255,
+            40,
+            0
+        ]
+    },
+    {
+        "name": "Bloodline Mod Color",
+        "rgb": [
+            210,
+            0,
+            220
+        ]
+    },
+    {
+        "name": "Bloodline Mod Outline Color",
+        "rgb": [
+            74,
+            0,
+            160
+        ]
+    },
+    {
+        "name": "Torment Mod Color",
+        "rgb": [
+            50,
+            230,
+            100
+        ]
+    },
+    {
+        "name": "Torment Mod Outline Color",
+        "rgb": [
+            0,
+            100,
+            150
+        ]
+    },
+    {
+        "name": "Title Color",
+        "rgb": [
+            231,
+            180,
+            120
+        ]
+    },
+    {
+        "name": "Favour Color",
+        "rgb": [
+            170,
+            158,
+            120
+        ]
+    },
+    {
+        "name": "Pink",
+        "rgb": [
+            255,
+            192,
+            203
+        ]
+    },
+    {
+        "name": "Dodger Blue",
+        "rgb": [
+            30,
+            144,
+            255
+        ]
+    }
+]

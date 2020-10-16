@@ -37,11 +37,34 @@ $num=0
 HotkeySet("{Home}", "AutoRun")
 HotkeySet("{End}", "IsRun")
 HotkeySet("{pgup}", "AutoClick")
-HotkeySet("{pgdn}", "ShowWindState")
+;~ HotkeySet("{v}", "v")
+
+$dll = DllOpen("user32.dll")
+;~ 鼠标中键（三键鼠标）
+$VK_MBUTTON=0X04
+
+Func v()
+    ;~ Send("{middle}",1)
+    ;~ MouseDown("middle")
+    $state = DllCall($dll, "int", "GetAsyncKeyState", "int", $VK_MBUTTON)
+    if (IsArray($state)) Then
+        $s=""
+        For $v In $state
+            $s = $s & @CRLF & $v
+            ;~ StringFormat("上一次%s",$v , @CRLF)
+        Next
+        echo($s)
+    EndIf
+EndFunc
+
+
+
+;~ HotkeySet("{pgdn}", "ShowWindState")
 
 ;~ 休眠
 While true
-    Sleep(10000)
+    ;~ v()
+    Sleep(100)
 WEnd
 
 
@@ -138,6 +161,7 @@ Func AutoClick()
     $isPgup = Not $isPgup
     While $isPgup
         MouseClick("left")
+        Sleep(2000)
     WEnd
 EndFunc
 
@@ -182,23 +206,35 @@ Func AutoRun()
 
     ;~ 上一次输入设备的状态
     $old=0
+    $time=0
 
     While true
+
         ;~ 获取输入设备空闲状态
         DllCall($dll, "int", "GetLastInputInfo", "ptr", $addr)
         ;~ 从结构体中读取数值
         $nLastInput = DllStructGetData($rInfo, 2)
-        If ( ($nLastInput==$old) And $isRun) Then ; 当没有操作 并且 允许状态
+        If ( ($nLastInput==$old) And $isRun ) Then ; 当没有操作 并且 允许状态
             ControlClick($wHWND, "", "", "left", 1, $cx, $cy)
+            ;~ ToolTip( $time,@DesktopWidth/3, @DesktopHeight/2)
             $old = $nLastInput
+            ;~ $time+=1
+            ;~ If $time > 10000 Then
+            ;~     Sleep(100)
+            ;~     ControlClick($wHWND, "", "", "left",1, $cx+144, $cy+144)
+            ;~     Sleep(100)
+            ;~     $time=0
+            ;~ EndIf
             ContinueLoop
         EndIf
+        ;~ ToolTip( $time,@DesktopWidth/2, @DesktopHeight/2)
         $old=$nLastInput
-        Sleep(500)   ; 当用户操作给 0.5秒延迟
+        Sleep(2000)   ; 当用户操作给 0.5秒延迟
     WEnd
     ;~ 这里永远不会执行 所以让程序退出的时候自动释放 dll
     ;~ DllClose($dll)
 EndFunc
+
 
 
 
@@ -215,8 +251,11 @@ Func PostButtonClick($hWnd, $x, $y)
             "hwnd", $x + BitShift($y,-16)) ;lParam
 EndFunc   ;==>PostButtonClick
 
-
+$num=0
 Func echo($v)
+    ;~ $num+=1
+    Sleep(100)
+    ToolTip( $v,@DesktopWidth/2, @DesktopHeight/2)
     $s = StringFormat("====== %s =====%s", $v, @CR)
     ConsoleWrite($s)
 EndFunc

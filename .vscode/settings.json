@@ -21,12 +21,11 @@
     // "autoit.includePaths": [
     //     "C:\\ScoopApp\\AutoIt\\current\\Include"
     // ]
-// ==========过滤器配色============
+// ==========过滤器配色方案============
 "[advancedpoefilter]": {
     "editor.tabSize": 4, // tab 占用4个空格
 },
-// 配色方案
-"editor.tokenColorCustomizations": {
+"editor.tokenColorCustomizations": { // 配色方案
     "textMateRules": [
         {
             "scope": "keyword.other.macro.advancedpoefilter",

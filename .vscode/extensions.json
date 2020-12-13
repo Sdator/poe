@@ -5,6 +5,7 @@
 	"recommendations": [
 		//  过滤器相关
 		"isuke.vscode-advanced-poe-filter",
+		"glencfl.item-filter-code",
 		// AHK 调试相关
 		"cweijan.vscode-autohotkey-plus",
 		"zero-plusplus.vscode-autohotkey-debug",

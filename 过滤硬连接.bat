@@ -1,9 +1,19 @@
 @echo off
 pushd %~dp0
-set "poe=%USERPROFILE%\Documents\My Games\Path of Exile"
+
+@REM 我的文档路径
+@REM 从注册表中读取
+set work=
+for /f "tokens=2*" %%a in ('REG QUERY "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" /v Personal') do set "work=%%b"
+
+set "poe=%work%\My Games\Path of Exile"
+
+
+echo 文档路径：%poe%
+
+
 set "mp3path=%poe%\mp3"
 rd /q "%mp3path%"
-
 mklink /D "%mp3path%" "%~dp0过滤器\音效"
 
 
@@ -23,9 +33,3 @@ for /r %%i in (*.filter) do (
 
 pause
 exit
-
-
-
-
-
-

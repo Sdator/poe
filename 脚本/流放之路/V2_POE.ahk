@@ -11,7 +11,7 @@
 #SingleInstance Force
 
 global isrun := False
-*F1::isrun := ! isrun
+~*Home::isrun := ! isrun
 
 ; #If WinActive("ahk_exe start_for_wegame.exe") && isrun
 ; #IF (WinActive("ahk_exe start_for_wegame.exe") || WinActive("ahk_exe PathOfExile_x64.exe")) && isrun
@@ -24,29 +24,30 @@ global isrun := False
 ; }
 
 ; 药 + 地雷 + buff
-; *q::Send "12345d{Numpad1}{Numpad2}{Numpad3}"
+*q::Send "12345d{Numpad1}{Numpad2}{Numpad3}"
 
 ; 位移 + 地雷 + buff
-; ~*d::Send "q{Numpad1}{Numpad2}{Numpad3}"
+~*d::Send "q{Numpad1}{Numpad2}{Numpad3}"
 
 ; 传送
-; *f::Send "{Numpad4}"
+*f::Send "{Numpad4}"
 
-; ; 正火
-; *v::Send "{MButton}"
+; 正火
+*v::Send "{MButton}"
 
-;加速药 + 地雷 + buff
-; *1::Send "q12345{Numpad1}{Numpad2}{Numpad3}d"
+; 加速药 + 地雷 + buff
+*1::Send "q12345{Numpad1}{Numpad2}{Numpad3}d"
 
 ; 下矿 照明 地雷
-; ~*2::Send "d6"
-; ~*3::Send "d7"
+~*2::Send "d6"
+~*3::Send "d7"
 
 ; 下矿 蜡烛和炸弹
+1:: Send "1234"
 2:: Send "r6"
 3:: Send "r7"
 
-~*z:: Send "{Ctrl down}{Click}"
+z:: Send "{Ctrl down}{Click}{Ctrl up}"
 
 ~*`:: Send "r"
 
@@ -56,7 +57,7 @@ z up:: Send "{Ctrl up}"
 XButton1::Send "{Right}"
 XButton2::Send "{Left}"
 
-sendMSG(str){
+FindItem(str){
     ; ClipSaved := A_Clipboard ; 把整个剪贴板保存到您选择的变量中.
     ; ... 这里临时使用剪贴板, 比如快速粘贴大量文本 ...
     A_Clipboard := str ; 还原剪贴板. 注意这里使用 A_Clipboard(而不是 ClipboardAll).
@@ -68,11 +69,21 @@ sendMSG(str){
     ; ClipSaved := "" ; 在剪贴板含有大量内容时释放内存.
 }
 
-f2::sendMSG("手")
-f3::sendMSG("头")
-f4::sendMSG("腿")
+f2::FindItem("手")
+f3::FindItem("头")
+f4::FindItem("腿")
 
-sendCom(str){
+; f6::SendMSG()
+
+Numpad1::SendMSG("/藏身处")
+; 小退
+Numpad0::{
+    SendMSG("/exit")
+    Sleep 2000
+    Send "{enter}"
+}
+
+SendMSG(str){
     Send "{enter}"
     Sleep 200
     A_Clipboard := str ; 还原剪贴板. 注意这里使用 A_Clipboard(而不是 ClipboardAll).
@@ -82,9 +93,6 @@ sendCom(str){
     Send "{Ctrl up}"
     Send "{enter}"
 }
-f5::sendCom("/藏身处")
-; f6::sendCom()
-; f7::sendCom()
 
 j::{
     ; 捉图坐标根据全屏坐标模式

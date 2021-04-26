@@ -22,54 +22,52 @@
     // "autoit.includePaths": [
     //     "C:\\ScoopApp\\AutoIt\\current\\Include"
     // ]
-    // ==========过滤器配色============
-    "[advancedpoefilter]": {
-        "editor.tabSize": 4, // tab 占用4个空格
-    },
-    // 配色方案
-    "editor.tokenColorCustomizations": {
-        "textMateRules": [
-            {
-                "scope": "keyword.other.macro.advancedpoefilter",
-                "settings": {
-                    "fontStyle": "underline"
-                }
-            },
-            {
-                "scope": "keyword.other.function.advancedpoefilter",
-                "settings": {
-                    "fontStyle": "underline"
-                }
-            },
-            {
-                "scope": "keyword.control.activity.advancedpoefilter",
-                "settings": {
-                    "foreground": "#6699cc"
-                }
-            },
-            {
-                "scope": "keyword.control.branch.advancedpoefilter",
-                "settings": {
-                    "foreground": "#9999cc"
-                }
-            },
-            {
-                "scope": "keyword.control.condition.advancedpoefilter",
-                "settings": {
-                    "foreground": "#66cccc"
-                }
-            },
-            {
-                "scope": "keyword.control.action.text.advancedpoefilter",
-                "settings": {
-                    "foreground": "#cc99cc"
-                }
-            },
-            {
-                "scope": "keyword.control.action.effect.advancedpoefilter",
-                "settings": {
-                    "foreground": "#ffcc66"
-                }
+// ==========过滤器配色方案============
+"[advancedpoefilter]": {
+    "editor.tabSize": 4, // tab 占用4个空格
+},
+"editor.tokenColorCustomizations": { // 配色方案
+    "textMateRules": [
+        {
+            "scope": "keyword.other.macro.advancedpoefilter",
+            "settings": {
+                "fontStyle": "underline"
+            }
+        },
+        {
+            "scope": "keyword.other.function.advancedpoefilter",
+            "settings": {
+                "fontStyle": "underline"
+            }
+        },
+        {
+            "scope": "keyword.control.activity.advancedpoefilter",
+            "settings": {
+                "foreground": "#6699cc"
+            }
+        },
+        {
+            "scope": "keyword.control.branch.advancedpoefilter",
+            "settings": {
+                "foreground": "#9999cc"
+            }
+        },
+        {
+            "scope": "keyword.control.condition.advancedpoefilter",
+            "settings": {
+                "foreground": "#66cccc"
+            }
+        },
+        {
+            "scope": "keyword.control.action.text.advancedpoefilter",
+            "settings": {
+                "foreground": "#cc99cc"
+            }
+        },
+        {
+            "scope": "keyword.control.action.effect.advancedpoefilter",
+            "settings": {
+                "foreground": "#ffcc66"
             }
         ]
     },

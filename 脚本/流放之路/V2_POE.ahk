@@ -44,7 +44,6 @@ ItemLink(){
     Send "{Shift down}{LButton}" ; 点链接
 }
 
-
 ; 连发
 SendKey(){
     ; Send "{Shift down}{LButton}"  ; 点链接
@@ -55,6 +54,16 @@ SendKey(){
 ; ~*RButton up::{
 ;     Sleep(200)
 ;     Send("d")
+~*Home::isrun := ! isrun
+
+; #If WinActive("ahk_exe start_for_wegame.exe") && isrun
+; #IF (WinActive("ahk_exe start_for_wegame.exe") || WinActive("ahk_exe PathOfExile_x64.exe")) && isrun
+#HotIf (WinActive("ahk_exe start_for_wegame.exe") || WinActive("ahk_exe PathOfExile_x64.exe")) && isrun
+
+; 释放地雷 + 引爆
+; ~*RButton up::{
+;     Sleep 200
+;     Send "d"
 ; }
 
 ; 药 + 地雷 + buff
@@ -116,17 +125,16 @@ searchImg(){
 ~*2::Send "6r"
 ~*3::Send "7r"
 
-/*
 ; 下矿 蜡烛和炸弹
-2::
-    Send {6}
-Return
+1:: Send "1234"
+2:: Send "r6"
+3:: Send "r7"
 
-3::
-    Send {Numpad5}
-    Send {7}
-Return
-*/
+z:: Send "{Ctrl down}{Click}{Ctrl up}"
+
+~*`:: Send "r"
+
+z up:: Send "{Ctrl up}"
 
 ; 鼠标4 5键切换背包
 XButton1::Send "{Right}"
@@ -190,7 +198,60 @@ f6::{
     Else
         Send sendMsg("/藏身处")
 
-}
+    FindItem(str){
+        ; ClipSaved := A_Clipboard ; 把整个剪贴板保存到您选择的变量中.
+        ; ... 这里临时使用剪贴板, 比如快速粘贴大量文本 ...
+        A_Clipboard := str ; 还原剪贴板. 注意这里使用 A_Clipboard(而不是 ClipboardAll).
+        Send "^f"
+        Send "{Ctrl down}v"
+        Sleep 200
+        Send "{Ctrl up}"
+        ; A_Clipboard :=ClipSaved
+        ; ClipSaved := "" ; 在剪贴板含有大量内容时释放内存.
+    }
+
+    f2::FindItem("手")
+    f3::FindItem("头")
+    f4::FindItem("腿")
+
+    ; f6::SendMSG()
+
+    Numpad1::SendMSG("/藏身处")
+    ; 小退
+    Numpad0::{
+        SendMSG("/exit")
+        Sleep 2000
+        Send "{enter}"
+    }
+
+    SendMSG(str){
+        Send "{enter}"
+        Sleep 200
+        A_Clipboard := str ; 还原剪贴板. 注意这里使用 A_Clipboard(而不是 ClipboardAll).
+        Send "^f"
+        Send "{Ctrl down}v"
+        Sleep 200
+        Send "{Ctrl up}"
+        Send "{enter}"
+    }
+
+    j::{
+        ; 捉图坐标根据全屏坐标模式
+        CoordMode "Pixel"
+        ;屏幕找图
+        try
+        {
+            Send "i"
+            Sleep 400
+            err := ImageSearch(x, y, A_ScreenWidth/2, A_ScreenHeight/2, A_ScreenWidth, A_ScreenHeight, "*100 data\回城卷.png")
+            Sleep 100
+            if (err = 1 ) {
+                Click "Right",x, y
+            }
+        } catch e {
+            MsgBox "错误：" e
+        }
+    }
 
 /*
 ; 功能键
@@ -200,4 +261,5 @@ f4::Send "{enter}/c{enter}"
 ; f5::Send "{enter}/h{enter}"
 f6::Send "{enter}/oos{enter}"
 
-*/
+    */
+    ; A_WorkingDir  脚本所在目录

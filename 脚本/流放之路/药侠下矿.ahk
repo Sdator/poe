@@ -15,45 +15,87 @@ global isrun := False
 
 #HotIf (WinActive("ahk_exe start_for_wegame.exe") || WinActive("ahk_exe PathOfExile_x64.exe")) && isrun
 
-; #HotIf isrun
+; ============================
+; 技能配置
+; ============================
 
-; 正火
-; *v::Send "{MButton}"
+; 辅助技能1 迷踪
+global S1 := "q"
+global S2 := "r"
 
-; 加速药 + 地雷 + buff-
-
-~*q::{
-    Send "12345"
+; 循环迷踪开关
+Numpad4::{
+    SetTimer "qwloop",0
+    SetTimer "wloop",0
+}
+; Q技能 移动+吃药
+*q::{
+    Send "12345" S1
     SetTimer "qwloop",7000
+    SetTimer "wloop",0
 }
-
+; 接一波迷踪
 qwloop(){
-    Send "w12345"
+    ; Send "12345" S2
     SetTimer , 0
-    ; SetTimer "qwloop2",2500
+    SetTimer "wloop",1000
+
+}
+; 循环释放 w
+wloop(){
+    ; 鼠标左键是按下状态才会触发
+    If ( GetKeyState("LButton"))
+        Send S2
 }
 
-qwloop2(){
-    Send "q"
-    SetTimer , 0
-}
-
-~*w::Send "12345"
-
-; 下矿 蜡烛和炸弹
-*1:: Send "t12345"
-*2:: Send "r6"
-*3:: Send "r7"
+; W技能 移动+吃药
+; *w::Send "12345" S2
 
 ; 配合系统一键吃药  放个 q 位移技能
 ~*`:: Send "t"
 
+; ============================
+; 下矿技能 蜡烛和炸弹
+; ============================
+*1:: Send "t12345"
+*2:: Send "r6"
+*3:: Send "r7"
+
+; 快速点击物品存放到背包
 z:: Send "{Ctrl down}{Click}{Ctrl up}"
 z up:: Send "{Ctrl up}"
 
 ; 鼠标4 5键切换背包
 XButton1::Send "{Right}"
 XButton2::Send "{Left}"
+
+f2::FindItem("手")
+f3::FindItem("头")
+f4::FindItem("腿")
+
+; 0 小退
+Numpad0::{
+    SendMSG("/exit")
+    Sleep 2000
+    Send "{enter}"
+}
+
+; 1 藏身处
+Numpad1::SendMSG("/藏身处")
+
+; ============================================
+; 功能函数
+; ============================================
+SendMSG(str){
+    Send "{enter}"
+    Sleep 200
+    A_Clipboard := str ; 还原剪贴板. 注意这里使用 A_Clipboard(而不是 ClipboardAll).
+    Send "^f"
+    Send "{Ctrl down}v"
+    Sleep 200
+    Send "{Ctrl up}"
+    Send "{enter}"
+}
 
 FindItem(str){
     ; ClipSaved := A_Clipboard ; 把整个剪贴板保存到您选择的变量中.
@@ -66,33 +108,6 @@ FindItem(str){
     ; A_Clipboard :=ClipSaved
     ; ClipSaved := "" ; 在剪贴板含有大量内容时释放内存.
 }
-
-f2::FindItem("手")
-f3::FindItem("头")
-f4::FindItem("腿")
-
-SendMSG(str){
-    Send "{enter}"
-    Sleep 200
-    A_Clipboard := str ; 还原剪贴板. 注意这里使用 A_Clipboard(而不是 ClipboardAll).
-    Send "^f"
-    Send "{Ctrl down}v"
-    Sleep 200
-    Send "{Ctrl up}"
-    Send "{enter}"
-}
-
-; 0 小退
-Numpad0::{
-    SendMSG("/exit")
-    Sleep 2000
-    Send "{enter}"
-}
-
-; 1 藏身处
-Numpad1::SendMSG("/藏身处")
-
-; f6::SendMSG()
 
 ; j 刷图中使用回城
 j::{

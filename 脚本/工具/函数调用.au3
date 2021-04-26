@@ -28,6 +28,20 @@
 ;~     echo($v)
 ;~ Next
 
+
+#comments-start
+
+        功能介绍
+
+注册的热键
+    Home
+    End
+    pgup
+
+
+#comments-end
+
+
 $isRun=False
 $isSet=False
 $isPgup=False
@@ -165,7 +179,7 @@ Func AutoClick()
     $isPgup = Not $isPgup
     While $isPgup
         MouseClick("left")
-        Sleep(2000)
+        ;~ Sleep(100)
     WEnd
 EndFunc
 

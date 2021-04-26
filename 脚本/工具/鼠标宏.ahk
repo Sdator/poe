@@ -2,9 +2,6 @@
 ; 跳过对话框并自动替换旧实例, 效果类似于 Reload 函数.
 #SingleInstance Force
 
-global PressKey := False
-global isKeyUP := False
-
 ; 按住
 ; Home::{
 ;     PressKey := ! PressKey
@@ -15,29 +12,25 @@ global isKeyUP := False
 ; }
 
 ; ~ 触发热键时, 热键中按键原有的功能不会被屏蔽
-; * 即使额外的修饰键被按住也能触发热键
+; * 即使额外的键被按住也能触发热键
 ; ========================
 ;            连点
 ; =========================
-; 计数器
-global num := 0
-global numUP := 0
-
-; home、右击取消
-
-~*LButton up::{
-    PressKey := False
-    numUP+=1
-    OutputDebug "左键或右键弹起" . numUP
-}
-
+; 总开关
+global isRun := False
 Home::{
-    PressKey := !PressKey
-    SetTimer "SendKey",1
+    isRun := !isRun
+    ; SetTimer "SendKey",1
 }
 
-global isOnClick:=False
-global xy
+#HotIf isRun
+
+; 按键开关
+global PressKey := False
+
+; 计数器
+global num := 0,numUP := 0,isOnClick:=False,xy
+
 End::{
     isOnClick := !isOnClick
     if isOnClick
@@ -102,15 +95,19 @@ AutoClick(){
     {
         num+=1
         PressKey := True
-        OutputDebug "按下" . num
+        OutputDebug "按下" . num . "`r`n"
         Sleep(500)
         ; 计时器循环运行
-        ; SetTimer "isDown",50
-        SetTimer "SendKey",0
-        ; SetTimer "test",50
-        ; SetTimer "SendKey",50
-        ; return
+        SetTimer "SendKey",1
     }
+
+    ; 当鼠标左键松开
+    ~*LButton up::{
+        PressKey := False
+        numUP+=1
+        OutputDebug "左键或右键弹起" . numUP . "`r`n"
+    }
+
     ; 连发
     SendKey(){
         ; 按住连发

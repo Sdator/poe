@@ -1,0 +1,79 @@
+
+
+
+Show "技能石 白色"
+    Class "Gem"
+    BaseType Var("White Gems")
+    SetBackgroundColor Var("3 Color")
+
+
+Show "装备 暗金"
+    Rarity = Unique
+	SetBorderColor 169 98 22
+	SetTextColor 169 98 22
+    SetFontSize 45
+    PlayAlertSound 5 300
+	PlayEffect Brown
+	MinimapIcon 0 Brown Triangle
+
+
+Show "地图"
+    SetBorderColor 255 255 255
+    SetBackgroundColor 0 0 0
+    SetFontSize 32
+    Fork "Rarity"
+        Show "Unique"
+            Rarity Unique
+            SetTextColor Var("Unique Item Color")
+        Show "Rare"
+            Rarity Rare
+            SetTextColor Var("Rare Item Color")
+        Show "Magic"
+            Rarity Magic
+            SetTextColor Var("Magic Item Color")
+        Show "Normal"
+            Rarity Normal
+            SetTextColor Var("Normal Item Color")
+
+
+
+Hide "隐藏 装备"
+    Class "Gem"
+    BaseType Var("White Gems")
+    SetBackgroundColor 255 255 255 255
+
+Hide "Nested Mixin Sample"
+    Class "Gloves" "Boots" "Body Armours" "Helmets" "Shields"
+
+    Mixin "Rarity"
+        Hide "Rare"
+            Rarity Rare
+            SetFontSize 45
+            SetBackgroundColor Var("Rare Item Color")
+
+            Mixin "Shaper/Elder"
+                Show "Shaper"
+                    ShaperItem True
+                    SetBackgroundColor 0 0 255 200
+                    MinimapIcon Largest Blue Triangle
+                    PlayEffect White
+                Show "Elder"
+                    ElderItem True
+                    SetBackgroundColor 20 20 255 200
+                    MinimapIcon Largest Brown Triangle
+                    PlayEffect White
+        Hide "Magic"
+            Rarity Magic
+            SetFontSize 36
+        Hide "Normal"
+            Rarity Normal
+            SetFontSize 18
+
+
+Show "全局"
+    SetBorderColor Var("Dodger Blue")
+	SetTextColor Var("Dodger Blue")
+    SetFontSize 45
+    PlayAlertSound 5 300
+	PlayEffect Brown
+	MinimapIcon 0 Brown Triangle

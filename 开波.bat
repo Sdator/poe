@@ -1,5 +1,11 @@
 @echo off
 pushd %~dp0
+code .
+pause
+exit
+
+
+
 
 ::VSCODE数据系统默认路径
 REM set "CodeData=%appdata%\Code\"
@@ -30,7 +36,4 @@ set "用户数据目录=.vscode\Code"
 
 rem code --user-data-dir %用户数据目录% .
 
-code .
 
-pause
-exit

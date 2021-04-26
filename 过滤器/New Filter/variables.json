@@ -1,1 +1,270 @@
-[{"name":"Currencies","items":["Albino Rhoa Feather","Armourer's Scrap","Awakener's Orb","Blacksmith's Whetstone","Blessed Orb","Cartographer's Chisel","Chaos Orb","Chromatic Orb","Divine Orb","Exalted Orb","Crusader's Exalted Orb","Redeemer's Exalted Orb","Hunter's Exalted Orb","Warlord's Exalted Orb","Gemcutter's Prism","Glassblower's Bauble","Jeweller's Orb","Mirror of Kalandra","Orb of Alchemy","Orb of Alteration","Orb of Annulment","Orb of Augmentation","Orb of Chance","Orb of Fusing","Orb of Regret","Orb of Scouring","Orb of Transmutation","Perandus Coin","Portal Scroll","Regal Orb","Scroll of Wisdom","Silver Coin","Vaal Orb"]},{"name":"Shards","items":["Alchemy Shard","Alteration Shard","Annulment Shard","Chaos Shard","Exalted Shard","Mirror Shard","Regal Shard","Scroll Fragment","Transmutation Shard"]},{"name":"'E' Series Gems","items":["Enhance Support","Enlighten Support","Empower Support"]},{"name":"White Gems","items":["Portal","Detonate Mines"]},{"name":"Drop Only Gems","items":["#'E' Series Gems","Portal","Vaal","Awakened"]},{"name":"Vendor Only Gems","items":["Block Chance Reduction Support","Mirror Arrow"]},{"name":"Equipments","items":["#Weapons","#Gears","#Accessories"]},{"name":"Weapons","items":["#One Hand Weapons","#Two Hand Weapons"]},{"name":"One Hand Weapons","items":["Claws","Daggers","Wands","One Hand Swords","Thrusting One Hand Swords","One Hand Axes","One Hand Maces","Sceptres"]},{"name":"Two Hand Weapons","items":["Bows","Staves","Two Hand Swords","Two Hand Axes","Two Hand Maces","Fishing Rods"]},{"name":"Gears","items":["Gloves","Boots","Body Armours","Helmets","Shields","Quivers"]},{"name":"Jewelries","items":["Amulets","Rings"]},{"name":"Accessories","items":["#Jewelries","Belts"]},{"name":"Six Sockets Equipments","items":["#Two Hand Weapons","Body Armours"]},{"name":"Four Sockets Equipments","items":["Gloves","Boots","Helmets"]},{"name":"Three Sockets Equipments","items":["#One Hand Weapons","Shields"]},{"name":"Atlas Base Items","items":["#Atlas Base Weapons","#Atlas Base Gears","#Atlas Base Accessories"]},{"name":"Atlas Base Weapons","items":["Convoking Wand"]},{"name":"Atlas Base Gears","items":["Bone Helmet","Spiked Gloves","Gripped Gloves","Fingerless Silk Gloves","Two-Toned Boots"]},{"name":"Atlas Base Accessories","items":["Marble Amulet","Blue Pearl Amulet","Opal Ring","Steel Ring","Vermillion Ring","Cerulean Ring","Vanguard Belt","Crystal Belt"]},{"name":"Atziri Gears","items":["Sacrificial Garb"]},{"name":"Bench Craft Mods","items":["of Weaponcraft","of Spellcraft","of Crafting"]},{"name":"Incursion Mods","items":["Tacati's","Citaqualotl's","Matatl's","Topotante's","Xopec's","Guatelitzi's","of Tacati","of Citaqualotl","of Matatl","of Puhuarte","of Guatelitzi"]},{"name":"Delve Mods","items":["Subterranean","of the Underground"]},{"name":"Betrayal Mods","items":["Veiled","Leo's Veiled","Catarina's Veiled","Elreon's Veiled","Vorici's Veiled","Haku's Veiled","Tora's Veiled","Vagan's Veiled","Guff's Veiled","It That Fled's Veiled","Gravicius' Veiled","Korell's Veiled","Rin's Veiled","of the Veil","of Janus' Veil","of Hillock's Veil","of Jorgin's Veil","of Cameria's Veil","of Aisling's Veil","of Riker's Veil"]}]
+[
+    {
+        "name": "Currencies",
+        "items": [
+            "Albino Rhoa Feather",
+            "Armourer's Scrap",
+            "Awakener's Orb",
+            "Blacksmith's Whetstone",
+            "Blessed Orb",
+            "Cartographer's Chisel",
+            "Chaos Orb",
+            "Chromatic Orb",
+            "Divine Orb",
+            "Exalted Orb",
+            "Crusader's Exalted Orb",
+            "Redeemer's Exalted Orb",
+            "Hunter's Exalted Orb",
+            "Warlord's Exalted Orb",
+            "Gemcutter's Prism",
+            "Glassblower's Bauble",
+            "Jeweller's Orb",
+            "Mirror of Kalandra",
+            "Orb of Alchemy",
+            "Orb of Alteration",
+            "Orb of Annulment",
+            "Orb of Augmentation",
+            "Orb of Chance",
+            "Orb of Fusing",
+            "Orb of Regret",
+            "Orb of Scouring",
+            "Orb of Transmutation",
+            "Perandus Coin",
+            "Portal Scroll",
+            "Regal Orb",
+            "Scroll of Wisdom",
+            "Silver Coin",
+            "Vaal Orb"
+        ]
+    },
+    {
+        "name": "Shards",
+        "items": [
+            "Alchemy Shard",
+            "Alteration Shard",
+            "Annulment Shard",
+            "Chaos Shard",
+            "Exalted Shard",
+            "Mirror Shard",
+            "Regal Shard",
+            "Scroll Fragment",
+            "Transmutation Shard"
+        ]
+    },
+    {
+        "name": "'E' Series Gems",
+        "items": [
+            "Enhance Support",
+            "Enlighten Support",
+            "Empower Support"
+        ]
+    },
+    {
+        "name": "White Gems",
+        "items": [
+            "Portal",
+            "Detonate Mines"
+        ]
+    },
+    {
+        "name": "Drop Only Gems",
+        "items": [
+            "#'E' Series Gems",
+            "Portal",
+            "Vaal",
+            "Awakened"
+        ]
+    },
+    {
+        "name": "Vendor Only Gems",
+        "items": [
+            "Block Chance Reduction Support",
+            "Mirror Arrow"
+        ]
+    },
+    {
+        "name": "Equipments",
+        "items": [
+            "#Weapons",
+            "#Gears",
+            "#Accessories"
+        ]
+    },
+    {
+        "name": "Weapons",
+        "items": [
+            "#One Hand Weapons",
+            "#Two Hand Weapons"
+        ]
+    },
+    {
+        "name": "One Hand Weapons",
+        "items": [
+            "Claws",
+            "Daggers",
+            "Wands",
+            "One Hand Swords",
+            "Thrusting One Hand Swords",
+            "One Hand Axes",
+            "One Hand Maces",
+            "Sceptres"
+        ]
+    },
+    {
+        "name": "Two Hand Weapons",
+        "items": [
+            "Bows",
+            "Staves",
+            "Two Hand Swords",
+            "Two Hand Axes",
+            "Two Hand Maces",
+            "Fishing Rods"
+        ]
+    },
+    {
+        "name": "Gears",
+        "items": [
+            "Gloves",
+            "Boots",
+            "Body Armours",
+            "Helmets",
+            "Shields",
+            "Quivers"
+        ]
+    },
+    {
+        "name": "Jewelries",
+        "items": [
+            "Amulets",
+            "Rings"
+        ]
+    },
+    {
+        "name": "Accessories",
+        "items": [
+            "#Jewelries",
+            "Belts"
+        ]
+    },
+    {
+        "name": "Six Sockets Equipments",
+        "items": [
+            "#Two Hand Weapons",
+            "Body Armours"
+        ]
+    },
+    {
+        "name": "Four Sockets Equipments",
+        "items": [
+            "Gloves",
+            "Boots",
+            "Helmets"
+        ]
+    },
+    {
+        "name": "Three Sockets Equipments",
+        "items": [
+            "#One Hand Weapons",
+            "Shields"
+        ]
+    },
+    {
+        "name": "Atlas Base Items",
+        "items": [
+            "#Atlas Base Weapons",
+            "#Atlas Base Gears",
+            "#Atlas Base Accessories"
+        ]
+    },
+    {
+        "name": "Atlas Base Weapons",
+        "items": [
+            "Convoking Wand"
+        ]
+    },
+    {
+        "name": "Atlas Base Gears",
+        "items": [
+            "Bone Helmet",
+            "Spiked Gloves",
+            "Gripped Gloves",
+            "Fingerless Silk Gloves",
+            "Two-Toned Boots"
+        ]
+    },
+    {
+        "name": "Atlas Base Accessories",
+        "items": [
+            "Marble Amulet",
+            "Blue Pearl Amulet",
+            "Opal Ring",
+            "Steel Ring",
+            "Vermillion Ring",
+            "Cerulean Ring",
+            "Vanguard Belt",
+            "Crystal Belt"
+        ]
+    },
+    {
+        "name": "Atziri Gears",
+        "items": [
+            "Sacrificial Garb"
+        ]
+    },
+    {
+        "name": "Bench Craft Mods",
+        "items": [
+            "of Weaponcraft",
+            "of Spellcraft",
+            "of Crafting"
+        ]
+    },
+    {
+        "name": "Incursion Mods",
+        "items": [
+            "Tacati's",
+            "Citaqualotl's",
+            "Matatl's",
+            "Topotante's",
+            "Xopec's",
+            "Guatelitzi's",
+            "of Tacati",
+            "of Citaqualotl",
+            "of Matatl",
+            "of Puhuarte",
+            "of Guatelitzi"
+        ]
+    },
+    {
+        "name": "Delve Mods",
+        "items": [
+            "Subterranean",
+            "of the Underground"
+        ]
+    },
+    {
+        "name": "Betrayal Mods",
+        "items": [
+            "Veiled",
+            "Leo's Veiled",
+            "Catarina's Veiled",
+            "Elreon's Veiled",
+            "Vorici's Veiled",
+            "Haku's Veiled",
+            "Tora's Veiled",
+            "Vagan's Veiled",
+            "Guff's Veiled",
+            "It That Fled's Veiled",
+            "Gravicius' Veiled",
+            "Korell's Veiled",
+            "Rin's Veiled",
+            "of the Veil",
+            "of Janus' Veil",
+            "of Hillock's Veil",
+            "of Jorgin's Veil",
+            "of Cameria's Veil",
+            "of Aisling's Veil",
+            "of Riker's Veil"
+        ]
+    }
+]

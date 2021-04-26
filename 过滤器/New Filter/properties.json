@@ -1,1 +1,17 @@
-{"scriptNames":["T1","T2"],"propNames":["Show Map Tire"],"values":[[0],[11]]}
+{
+    "scriptNames": [
+        "开荒",
+        "异界"
+    ],
+    "propNames": [
+        "Show Map Tire"
+    ],
+    "values": [
+        [
+            0
+        ],
+        [
+            11
+        ]
+    ]
+}

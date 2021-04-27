@@ -13,6 +13,13 @@
 global isrun := False
 ~*Home::isrun := ! isrun
 
+; 迷踪计时器开关
+Numpad4::{
+    SetTimer "qwloop",0
+    SetTimer "wloop",0
+
+}
+
 #HotIf (WinActive("ahk_exe start_for_wegame.exe") || WinActive("ahk_exe PathOfExile_x64.exe")) && isrun
 
 ; ============================
@@ -23,11 +30,6 @@ global isrun := False
 global S1 := "q"
 global S2 := "r"
 
-; 循环迷踪开关
-Numpad4::{
-    SetTimer "qwloop",0
-    SetTimer "wloop",0
-}
 ; Q技能 移动+吃药
 *q::{
     Send "12345" S1
@@ -38,21 +40,25 @@ Numpad4::{
 qwloop(){
     ; Send "12345" S2
     SetTimer , 0
-    SetTimer "wloop",1000
+    SetTimer "wloop",500
 
 }
 ; 循环释放 w
 wloop(){
     ; 鼠标左键是按下状态才会触发
-    If ( GetKeyState("LButton"))
-        Send S2
+    ; If ( GetKeyState("LButton"))
+    Send S2
 }
 
 ; W技能 移动+吃药
-; *w::Send "12345" S2
+*w::Send "12345" S2
 
 ; 配合系统一键吃药  放个 q 位移技能
-~*`:: Send "t"
+~*`:: {
+    Send S1
+    SetTimer "qwloop",6000
+    SetTimer "wloop",0
+}
 
 ; ============================
 ; 下矿技能 蜡烛和炸弹
@@ -62,7 +68,7 @@ wloop(){
 *3:: Send "r7"
 
 ; 快速点击物品存放到背包
-z:: Send "{Ctrl down}{Click}{Ctrl up}"
+z:: Send "{Ctrl down}{Click}"
 z up:: Send "{Ctrl up}"
 
 ; 鼠标4 5键切换背包
@@ -82,6 +88,9 @@ Numpad0::{
 
 ; 1 藏身处
 Numpad1::SendMSG("/藏身处")
+Numpad7::SendMSG("/游戏时间")
+Numpad8::SendMSG("/剩余怪物")
+Numpad9::SendMSG("/创角时间")
 
 ; ============================================
 ; 功能函数

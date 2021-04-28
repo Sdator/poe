@@ -75,9 +75,8 @@ z up:: Send "{Ctrl up}"
 XButton1::Send "{Right}"
 XButton2::Send "{Left}"
 
-f2::FindItem("手")
-f3::FindItem("头")
-f4::FindItem("腿")
+F2::FindItem("depth:200")
+; f2::FindItemrrrr
 
 ; 0 小退
 Numpad0::{
@@ -87,7 +86,8 @@ Numpad0::{
 }
 
 ; 1 藏身处
-Numpad1::SendMSG("/藏身处")
+F1::SendMSG("/藏身处")
+
 Numpad7::SendMSG("/游戏时间")
 Numpad8::SendMSG("/剩余怪物")
 Numpad9::SendMSG("/创角时间")

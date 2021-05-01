@@ -58,7 +58,7 @@ wloop(){
 
 ; 配合系统一键吃药  放个 q 位移技能
 ~*`:: {
-    Send "wq"
+    Send "q"
     SetTimer "qwloop",6000
     SetTimer "wloop",0
 }
@@ -79,7 +79,7 @@ XButton1::Send "{Right}"
 XButton2::Send "{Left}"
 
 ; 0 小退
-Numpad0::{
+F4::{
     SendMSG("/exit")
     Sleep 2000
     Send "{enter}"
@@ -88,6 +88,8 @@ Numpad0::{
 ; 1 藏身处
 F1::SendMSG("/藏身处")
 F2::FindItem("depth:200")
+F3::FindItem('"o [0-1][0-9] ch" "20 /"')
+
 Numpad7::SendMSG("/游戏时间")
 Numpad8::SendMSG("/剩余怪物")
 Numpad9::SendMSG("/创角时间")
@@ -110,9 +112,12 @@ FindItem(str){
     ; ClipSaved := A_Clipboard ; 把整个剪贴板保存到您选择的变量中.
     ; ... 这里临时使用剪贴板, 比如快速粘贴大量文本 ...
     A_Clipboard := str ; 还原剪贴板. 注意这里使用 A_Clipboard(而不是 ClipboardAll).
+    ; ctrl + f 定位到搜索框
     Send "^f"
+    ; 粘贴
     Send "{Ctrl down}v"
     Sleep 200
+    ; 松开
     Send "{Ctrl up}"
     ; A_Clipboard :=ClipSaved
     ; ClipSaved := "" ; 在剪贴板含有大量内容时释放内存.

@@ -36,6 +36,9 @@ global S2 := "r"
     SetTimer "qwloop",7000
     SetTimer "wloop",0
 }
+
+; ~*e:: Send "wq12345"
+
 ; 接一波迷踪
 qwloop(){
     ; Send "12345" S2
@@ -46,16 +49,16 @@ qwloop(){
 ; 循环释放 w
 wloop(){
     ; 鼠标左键是按下状态才会触发
-    If (GetKeyState("LButton") and WinActive("ahk_exe start_for_wegame.exe") and isrun)
+    If ( GetKeyState("LButton") and WinActive("ahk_exe start_for_wegame.exe") and isrun)
         Send S2
 }
 
 ; W技能 移动+吃药
-*w::Send "12345" S2
+; *w::Send "12345" S2
 
 ; 配合系统一键吃药  放个 q 位移技能
 ~*`:: {
-    Send S1
+    Send "wq"
     SetTimer "qwloop",6000
     SetTimer "wloop",0
 }
@@ -63,7 +66,7 @@ wloop(){
 ; ============================
 ; 下矿技能 蜡烛和炸弹
 ; ============================
-*1:: Send "t12345"
+; *1:: Send "wq12345"
 *2:: Send "r6"
 *3:: Send "r7"
 

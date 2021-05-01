@@ -14,11 +14,11 @@ global isrun := False
 ~*Home::isrun := ! isrun
 
 ; 迷踪计时器开关
-Numpad4::{
-    SetTimer "qwloop",0
-    SetTimer "wloop",0
+; Numpad4::{
+;     SetTimer "qwloop",0
+;     SetTimer "wloop",0
 
-}
+; }
 
 #HotIf (WinActive("ahk_exe start_for_wegame.exe") || WinActive("ahk_exe PathOfExile_x64.exe")) && isrun
 
@@ -46,8 +46,8 @@ qwloop(){
 ; 循环释放 w
 wloop(){
     ; 鼠标左键是按下状态才会触发
-    ; If ( GetKeyState("LButton"))
-    Send S2
+    If (GetKeyState("LButton") and WinActive("ahk_exe start_for_wegame.exe") and isrun)
+        Send S2
 }
 
 ; W技能 移动+吃药
@@ -75,9 +75,6 @@ z up:: Send "{Ctrl up}"
 XButton1::Send "{Right}"
 XButton2::Send "{Left}"
 
-F2::FindItem("depth:200")
-; f2::FindItemrrrr
-
 ; 0 小退
 Numpad0::{
     SendMSG("/exit")
@@ -87,7 +84,7 @@ Numpad0::{
 
 ; 1 藏身处
 F1::SendMSG("/藏身处")
-
+F2::FindItem("depth:200")
 Numpad7::SendMSG("/游戏时间")
 Numpad8::SendMSG("/剩余怪物")
 Numpad9::SendMSG("/创角时间")

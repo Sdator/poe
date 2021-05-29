@@ -28,7 +28,9 @@ global isrun := False
 
 ; 辅助技能1 迷踪
 global S1 := "q"
-global S2 := "r"
+global S2 := "rf"
+; ~ 辅助一键吃药 q凋零步 f战吼
+global S3 := "qf"
 
 ; Q技能 移动+吃药
 *q::{
@@ -58,9 +60,15 @@ wloop(){
 
 ; 配合系统一键吃药  放个 q 位移技能
 ~*`:: {
-    Send "q"
+    Send S3
     SetTimer "qwloop",6000
     SetTimer "wloop",0
+}
+
+; 配合系统一键吃药  放个 q 位移技能
+t:: {
+    Send "{Ctrl down}qwert{Ctrl up}"
+
 }
 
 ; ============================
@@ -89,6 +97,8 @@ F4::{
 F1::SendMSG("/藏身处")
 F2::FindItem("depth:200")
 F3::FindItem('"o [0-1][0-9] ch" "20 /"')
+F5::InStr "探索物品"
+F6::InStr "分裂化石"
 
 Numpad7::SendMSG("/游戏时间")
 Numpad8::SendMSG("/剩余怪物")
@@ -97,28 +107,34 @@ Numpad9::SendMSG("/创角时间")
 ; ============================================
 ; 功能函数
 ; ============================================
-SendMSG(str){
-    Send "{enter}"
-    Sleep 200
+
+InStr(str){
     A_Clipboard := str ; 还原剪贴板. 注意这里使用 A_Clipboard(而不是 ClipboardAll).
-    Send "^f"
     Send "{Ctrl down}v"
     Sleep 200
     Send "{Ctrl up}"
+}
+
+SendMSG(str){
+    Send "{enter}"
+    Sleep 200
+    ; A_Clipboard := str ; 还原剪贴板. 注意这里使用 A_Clipboard(而不是 ClipboardAll).
+    Send "^f"
+    ; Send "{Ctrl down}v"
+    InStr(str)
     Send "{enter}"
 }
 
 FindItem(str){
     ; ClipSaved := A_Clipboard ; 把整个剪贴板保存到您选择的变量中.
     ; ... 这里临时使用剪贴板, 比如快速粘贴大量文本 ...
-    A_Clipboard := str ; 还原剪贴板. 注意这里使用 A_Clipboard(而不是 ClipboardAll).
+    ; A_Clipboard := str ; 还原剪贴板. 注意这里使用 A_Clipboard(而不是 ClipboardAll).
     ; ctrl + f 定位到搜索框
     Send "^f"
     ; 粘贴
-    Send "{Ctrl down}v"
-    Sleep 200
-    ; 松开
-    Send "{Ctrl up}"
+    ; Send "{Ctrl down}v"
+    InStr(str)
+
     ; A_Clipboard :=ClipSaved
     ; ClipSaved := "" ; 在剪贴板含有大量内容时释放内存.
 }

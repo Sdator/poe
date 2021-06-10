@@ -1,87 +1,79 @@
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "AHK v2",
-            "type": "shell",
-            "command": ".\\工具\\AHK_V2\\AutoHotkeyU64.exe",
-            "args": [
-                "${file}"
-            ],
-            //如果是Windows平台使用cmd来运行脚本
-            "windows": {
-                "runOptions": {
-                    "reevaluateOnRerun": false
-                },
-                "type": "process",
-                // "options": {
-                //     "shell": {
-                //         "executable": "cmd.exe",
-                //         "args": [
-                //             "/d",
-                //             "/c"
-                //         ]
-                //     }
-                // }
-            },
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "AHK v2",
+      "type": "shell",
+      "command": ".\\工具\\AHK_V2\\AutoHotkeyU64.exe",
+      "args": ["${file}"],
+      //如果是Windows平台使用cmd来运行脚本
+      "windows": {
+        "runOptions": {
+          "reevaluateOnRerun": false
         },
-        {
-            "label": "AHK v1.3",
-            "type": "shell",
-            "command": ".\\工具\\AHK_V1\\AutoHotkeyU64.exe",
-            "args": [
-                "${file}"
-            ],
-            //如果是Windows平台使用cmd来运行脚本
-            "windows": {
-                "runOptions": {
-                    "reevaluateOnRerun": false
-                },
-                "type": "process",
-                "options": {
-                    "shell": {
-                        "executable": "cmd.exe",
-                        "args": [
-                            "/d",
-                            "/c"
-                        ]
-                    }
-                }
-            },
+        "type": "process"
+        // "options": {
+        //     "shell": {
+        //         "executable": "cmd.exe",
+        //         "args": [
+        //             "/d",
+        //             "/c"
+        //         ]
+        //     }
+        // }
+      }
+    },
+    {
+      "label": "AHK v1.3",
+      "type": "shell",
+      "command": ".\\工具\\AHK_V1\\AutoHotkeyU64.exe",
+      "args": ["${file}"],
+      //如果是Windows平台使用cmd来运行脚本
+      "windows": {
+        "runOptions": {
+          "reevaluateOnRerun": false
         },
-        {
-            "label": "test",
-            "type": "shell",
-            "command": "${workspaceFolder}\\tools\\AutoHotkey_1.1.32.00\\AutoHotkeyU64.exe",
-            "args": [
-                "${file}"
-            ],
-            //如果是Windows平台使用cmd来运行脚本
-            "windows": {
-                "runOptions": {
-                    "reevaluateOnRerun": false
-                },
-                "type": "process",
-                "options": {
-                    "shell": {
-                        "executable": "cmd.exe",
-                        "args": [
-                            "/d",
-                            "/c"
-                        ]
-                    }
-                }
-            },
-        },
-        {
-            "label": "echo",
-            "type": "shell",
-            "command": "echo",
-            "args": [
-                "${workspaceFolder}"
-            ]
+        "type": "process",
+        "options": {
+          "shell": {
+            "executable": "cmd.exe",
+            "args": ["/d", "/c"]
+          }
         }
-    ]
+      }
+    },
+    {
+      "label": "test",
+      "type": "shell",
+      "command": "${workspaceFolder}\\tools\\AutoHotkey_1.1.32.00\\AutoHotkeyU64.exe",
+      "args": ["${file}"],
+      //如果是Windows平台使用cmd来运行脚本
+      "windows": {
+        "runOptions": {
+          "reevaluateOnRerun": false
+        },
+        "type": "process",
+        "options": {
+          "shell": {
+            "executable": "cmd.exe",
+            "args": ["/d", "/c"]
+          }
+        }
+      }
+    },
+    {
+      "label": "echo",
+      "type": "shell",
+      "command": "echo",
+      "args": ["${workspaceFolder}", "${file}"]
+    },
+    {
+      "label": "编译当前脚本",
+      "type": "process",
+      "command": "工具\\AHK_V2\\Compiler\\Ahk2Exe.exe",
+      "args": ["/in", "${file}"]
+    }
+  ]
 }

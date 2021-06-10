@@ -35,5 +35,3 @@ set "插件目录=.vscode\extensions"
 set "用户数据目录=.vscode\Code"
 
 rem code --user-data-dir %用户数据目录% .
-
-
